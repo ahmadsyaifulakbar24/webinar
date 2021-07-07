@@ -15,6 +15,11 @@ class CreateRegistrationsTable extends Migration
     {
         Schema::create('registrations', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('training_id')->constrained('trainings')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('role_id')->constrained('params')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('qrcode')->unique();
+            $table->boolean('certificate')->default(0);
             $table->timestamps();
         });
     }

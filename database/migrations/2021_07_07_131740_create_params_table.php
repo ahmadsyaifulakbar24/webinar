@@ -15,7 +15,10 @@ class CreateParamsTable extends Migration
     {
         Schema::create('params', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('parent_id')->nullable()->constrained('params')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('category');
+            $table->string('param');
+            $table->integer('order');
         });
     }
 

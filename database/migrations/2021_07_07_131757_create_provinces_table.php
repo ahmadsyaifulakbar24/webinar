@@ -15,7 +15,15 @@ class CreateProvincesTable extends Migration
     {
         Schema::create('provinces', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('province');
+        });
+
+        Schema::table('users', function (Blueprint $table) {
+            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade')->onUpdate('cascade');
+        });
+
+        Schema::table('cities', function (Blueprint $table) {
+            $table->foreign('province_id')->references('id')->on('provinces')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

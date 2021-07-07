@@ -15,7 +15,9 @@ class CreateTheoriesTable extends Migration
     {
         Schema::create('theories', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignId('training_id')->constrained('trainings')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('theory');
+            $table->integer('jpl');
         });
     }
 

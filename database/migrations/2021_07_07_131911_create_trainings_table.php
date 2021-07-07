@@ -15,6 +15,15 @@ class CreateTrainingsTable extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('unit_id')->constrained('params')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('sub_unit_id')->constrained('params')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('poster_path');
+            $table->string('topic');
+            $table->date('date');
+            $table->time('time');
+            $table->text('description');
+            $table->string('code')->unique();
+            $table->enum('status', ['publish', 'finish', 'unpublish']);
             $table->timestamps();
         });
     }
