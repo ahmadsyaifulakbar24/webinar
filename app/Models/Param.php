@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Params extends Model
+class Param extends Model
 {
     protected $table = 'params';
     protected $fillable = [
