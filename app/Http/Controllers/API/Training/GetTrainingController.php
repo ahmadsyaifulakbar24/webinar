@@ -6,6 +6,8 @@ use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Training\TheoryResource;
 use App\Http\Resources\Training\TrainingResource;
+use App\Models\User;
+use App\Models\Registration;
 use App\Models\Theory;
 use App\Models\Training;
 use Illuminate\Http\Request;
@@ -73,5 +75,18 @@ class GetTrainingController extends Controller
             return ResponseFormatter::error([
                 'message' => 'training data not found'
             ], 'error get training data', 404);
+    }
+
+    public function training_by_user(Request $request)
+    {
+        $this->validate($request, [
+            'user_id' => ['required', 'exists:users,id']
+        ]);
+
+        $user = User::find($request->user_id);
+        return ResponseFormatter::success(
+            TrainingResource::collection($user->training),
+            'success get training data'
+        );
     }
 }

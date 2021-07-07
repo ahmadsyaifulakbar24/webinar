@@ -49,6 +49,7 @@ Route::namespace('API')->group(function () {
            Route::post('update/{training:id}', 'UpdateTrainingController@update');
            Route::post('update_theory/{theory:id}', 'UpdateTrainingController@update_theory');
            Route::get('fetch/{training_id?}', 'GetTrainingController@fetch');
+           Route::get('fetch_training_by_user', 'GetTrainingController@training_by_user');
            Route::get('fetch_theory/{theory_id?}', 'GetTrainingController@fetch_theory');
            Route::delete('delete/{training:id}', 'DeleteTrainingController@delete');
            Route::delete('delete_theory/{theory:id}', 'DeleteTrainingController@delete_theory');
