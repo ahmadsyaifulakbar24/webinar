@@ -98,7 +98,7 @@ $('form').submit(function(e) {
         error: function(xhr) {
             $('#submit').attr('disabled', false)
             let err = xhr.responseJSON.errors
-            // console.log(err)
+            console.log(err)
             if (err.name) {
                 $('#name').addClass('is-invalid')
                 $('#name').siblings('.invalid-feedback').html('Masukkan nama lengkap.')
@@ -108,9 +108,15 @@ $('form').submit(function(e) {
                 $('#email').siblings('.invalid-feedback').html('Masukkan email')
             }
             if (err.nik) {
-                $('#nik').addClass('is-invalid')
-                $('#nik').siblings('.invalid-feedback').html('Masukkan NIK')
-            }
+	            if (err.nik == "The nik has already been taken.") {
+	                $('#nik').addClass('is-invalid')
+	                $('#nik').siblings('.invalid-feedback').html('NIK telah terdaftar')
+	            }
+	            else {
+	                $('#nik').addClass('is-invalid')
+	                $('#nik').siblings('.invalid-feedback').html('Masukkan NIK')
+	            }
+	        }
             if (err.date_of_birth) {
                 $('#date_of_birth').addClass('is-invalid')
                 $('#date_of_birth').siblings('.invalid-feedback').html('Masukkan tanggal lahir')

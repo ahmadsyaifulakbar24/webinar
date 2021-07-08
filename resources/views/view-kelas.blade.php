@@ -21,10 +21,10 @@
                     		<i class="mdi mdi-24px mdi-arrow-left"></i>
                     	</a>
                     	<div>
-                    		<a target="_blank" class="btn btn-sm btn-outline-primary" id="download" style="display:none">Unduh Sertifikat</a>
+                    		<a target="_blank" class="btn btn-sm btn-active" id="download" style="display:none">Unduh Sertifikat</a>
                     		<!-- <div class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#modal-delete">Keluar Kelas</div> -->
                     	</div>
-                		<small class="font-weight-bol font-italic" id="progress" style="display:none">Masih dalam proses pembuatan sertifikat, mohon tunggu.</small>
+                		<small class="font-italic" id="progress" style="display:none">Masih dalam proses pembuatan sertifikat, mohon tunggu.</small>
                     </div>
                     <div class="card p-4 mb-4 mt-3">
                     	<div class="row flex-sm-row-reverse">

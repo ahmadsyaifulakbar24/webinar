@@ -13,13 +13,13 @@ $.ajax({
         $('#date').html(tanggal(value.date))
         $('#time').html(value.time.substr(0, 5) + ' WIB')
         $('#description').html(value.description)
-        if (value.status == 'publish') {
-        	$('#progress').show()
-        	$('#download').hide()
-        } else {
+        if (value.status == 'finish') {
         	$('#progress').hide()
         	$('#download').show()
         	$('#download').attr('href', `${root}/sertifikat/${code}/${user_id}`)
+        } else {
+        	$('#progress').show()
+        	$('#download').hide()
         }
     }
 })

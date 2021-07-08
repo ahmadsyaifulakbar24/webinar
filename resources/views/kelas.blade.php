@@ -68,9 +68,9 @@
 		    		</div>
 	    			<div class="container">
 	        			<div class="row pt-3">
-	            			<div class="col btn btn-outline-primary mr-2" data-toggle="modal" data-dismiss="modal">Batal</div>
-	            			<div class="col btn btn-primary ml-2" id="search">Cari</div>
-	            			<button class="col btn btn-primary ml-2" id="submit" style="display: none">Tambah</button>
+	            			<div class="col btn btn-outline mr-2" data-toggle="modal" data-dismiss="modal">Batal</div>
+	            			<div class="col btn btn-active ml-2" id="search">Cari</div>
+	            			<button class="col btn btn-active ml-2" id="submit" style="display: none">Tambah</button>
 	            		</div>
 	            	</div>
 	            </form>
