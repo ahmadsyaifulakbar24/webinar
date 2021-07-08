@@ -14,7 +14,7 @@ $.ajax({
 				<div class="card pb-5" style="height:100%">
 					<a href="${root}/kelas/${value.id}" class="text-dark">
 						<img class="card-img-top" src="${value.poster_url}">
-						<p class="text-justify mt-3 px-3 mb-0">Topik: <b>${value.topic}</b></p>
+						<p class="text-justify mt-3 px-3">Topik: <b>${value.topic}</b></p>
 						<p class="px-3">Kode Kelas: <b>${value.code}</b></p>
 					</a>
 					<div class="bg-light pointer text-secondary text-center border-top px-3 py-2 mb-4" style="position:absolute;bottom:-1.5rem;width:100%" onclick="return copyToClipboard('${value.code}')">
