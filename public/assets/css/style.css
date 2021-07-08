@@ -1,0 +1,195 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans',sans-serif;
+    background: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+section {
+    padding-top: 70px;
+    padding-bottom: 100px;
+    text-align: center;
+}
+#menu {
+    padding-top: 100px !important;
+}
+
+.shadow {
+	box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.10);
+}
+.none {
+	display: none;
+}
+.pointer {
+	cursor: pointer;
+}
+
+.card {
+    color: black;
+}
+a .card {
+    transition: 0.2s;
+}
+a .card:hover {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.10);
+}
+a .card:hover h5 {
+    color: #70bc2e;
+}
+a .card:hover .menu {
+    color: white;
+}
+.card-head {
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card-form-login {
+    margin: 0 auto;
+    max-width: 450px;
+}
+.card-form-register {
+    margin: 0 auto;
+    max-width: 576px;
+}
+.card-form {
+    margin: 30px 0;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px 1px rgba(0,0,0,.05);
+    -webkit-box-shadow: 0 1px 4px 1px rgba(0,0,0,.05);
+}
+
+.card-bg-1 {
+	background-image: linear-gradient(to right,#e74c3c,#f1c40f);
+}
+.card-bg-2 {
+	background-image: linear-gradient(to right,#0984e3,#74b9ff);
+}
+.card-bg-3 {
+	background-image: linear-gradient(to right,#1abc9c,#2ecc71);
+}
+.card-bg-4 {
+	background-image: linear-gradient(to right,#2d3436,#636e72);
+}
+.card-bg-5 {
+	background-image: linear-gradient(to right,#6c5ce7,#a29bfe);
+}
+
+.background {
+    height: 600px;
+    position: relative;
+    background: url('../../img/background/umkm.jpg') no-repeat center center;
+    background-size: cover;
+}
+.background .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #000;
+    display: block;
+    background: rgba(255, 255, 255, .9);
+}
+.background .overlay .container {
+    padding-top: 100px;
+}
+
+
+.text-siwira {
+    color: #70bc2e !important;
+}
+
+.btn-active {
+    color: #fff;
+    background: #70bc2e;
+    font-weight: bold;
+}
+.btn-active:hover {
+	box-shadow: 0px 10px 10px rgba(112, 188, 46, 0.5);
+}
+.btn-outline {
+    color: #70bc2e;
+    background: #fff;
+    border: 1px solid #70bc2e;
+    font-weight: bold;
+}
+.btn-outline:hover {
+	box-shadow: 0px 10px 10px rgba(112, 188, 46, 0.2);
+}
+
+.navbar {
+    transition: 0.3s !important;
+}
+.navbar-toggler:focus {
+    outline: none !important;
+}
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: rgba(112,188,46,1) !important;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(112,188,46,0.7);
+}
+
+.dropdown-item {
+    color: rgba(0,0,0,0.5) !important;
+}
+.dropdown-item:hover {
+    color: #fff !important;
+    background-color: rgba(112,188,46,1) !important;
+}
+
+.menu {
+    position: static;
+    width: 300px;
+}
+
+.card-news-menu {
+    transition: 0.1s;
+}
+.card-news-menu:hover {
+    cursor: pointer;
+    background-color: #eaebef;
+}
+.active {
+    color: white !important;
+    background-color: rgba(112,188,46,1) !important;
+}
+
+.show-password {
+    position: relative;
+    z-index: 2;
+    float: right;
+    margin-right: 10px;
+    margin-top: -29px;
+    display: none;
+}
+
+@media only screen and (max-width: 991px) {
+    
+    .background .overlay .container {
+        padding-top: 100px;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+
+    body {
+        background-color: white !important;
+    }
+    .card-form {
+        margin: 0;
+        border-radius: 0;
+        margin-bottom: 30px;
+    }
+    .card-form-login {
+        max-width: 576px;
+    }
+}
