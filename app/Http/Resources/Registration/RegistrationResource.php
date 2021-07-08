@@ -21,6 +21,8 @@ class RegistrationResource extends JsonResource
             'training_id' => $this->training_id,
             'user' => new UserResource($this->user),
             'role' => new ParamResource($this->role),
+            'qrcode' => $this->qrcode,
+            'certificate' => $this->certificate,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
