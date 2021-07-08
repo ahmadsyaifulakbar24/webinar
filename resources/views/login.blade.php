@@ -48,7 +48,7 @@
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="form-group pt-3">
-                        <button class="btn btn-active btn-block" id="submit">Ambil Sertifikat</button>
+                        <button class="btn btn-active btn-block" id="submit">Masuk</button>
                     </div>
                     <a href="{{url('pengisian-daftar-hadir')}}" class="btn btn-block btn-outline mb-3">Pengisian Daftar Hadir</a>
                 </form>
