@@ -65,7 +65,7 @@ class User extends Authenticatable
 
     public function training()
     {
-        return $this->belongsToMany(Training::class, 'registrations', 'user_id', 'training_id');
+        return $this->belongsToMany(Training::class, 'registrations', 'user_id', 'training_id')->withPivot('id');
     }
 
     public function province()

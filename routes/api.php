@@ -25,6 +25,10 @@ Route::namespace('API')->group(function () {
         Route::get('city', 'GetParamController@city');
     });
     
+    Route::namespace('Registration')->prefix('registration')->group(function () {
+        Route::get('fetch_by_qrcode/{qrcode}', 'GetRegistrationController@fetch_by_qrcode');
+    });
+    
     Route::middleware('auth:sanctum')->group(function () {
         Route::namespace('Auth')->group(function () {
             Route::post('auth/logout', 'LogoutController');
