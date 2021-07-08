@@ -63,7 +63,7 @@
             </div>
         </div>
     </section>
-@section('content')
+@endsection
 
 @section('script')
 	<script>const code = '{{$code}}'</script>

@@ -30,6 +30,8 @@
 									<h6 class="font-weight-bold" id="code"></h6>
 								</div>
                         		<img id="poster" class="rounded" style="width:100%">
+                        		<div class="btn btn-block btn-active mt-3" id="btn-finish" style="display: none;">Finish</div>
+                        		<div class="btn btn-block btn-outline mt-3">Unduh Excel</div>
                         	</div>
                     		<div class="col-md-8 col-sm-8">
 	                        	<div class="form-group">
@@ -78,7 +80,7 @@
 											<th scope="col" class="text-center">No.</th>
 											<th scope="col">Nama</th>
 											<th scope="col">NIK (Nomor Induk Kependudukan)</th>
-											<th scope="col">Provinsi</th>
+											<th scope="col">Nomor Telepon</th>
 											<th scope="col"></th>
 										</tr>
 									</thead>
@@ -123,27 +125,40 @@
             		</div>
             	</div>
             </div>
-            <div class="modal" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="deleteTitle" aria-hidden="true">
-            	<div class="modal-dialog modal-dialog-centered" role="document">
-            		<div class="modal-content text-center p-3">
-            			<p class="py-5">Anda yakin ingin hapus kelas <span class="font-weight-bold topic"></span>?</p>
-            			<div class="container">
-                			<div class="row">
-	                			<button class="col btn btn-outline-danger mr-2" data-toggle="modal" data-target="#option" data-dismiss="modal">Batal</button>
-	                			<button class="col btn btn-danger ml-2" id="delete">Hapus</button>
-	                		</div>
-	                	</div>
-            		</div>
-            	</div>
-            </div>
             <div class="modal" id="modal-theory" tabindex="-1" role="dialog" aria-labelledby="deleteTitle" aria-hidden="true">
             	<div class="modal-dialog modal-dialog-centered" role="document">
             		<div class="modal-content text-center p-3">
             			<p class="py-5">Anda yakin ingin hapus materi <span class="font-weight-bold theory-name"></span>?</p>
             			<div class="container">
                 			<div class="row">
-	                			<button class="col btn btn-outline-danger mr-2" data-toggle="modal" data-dismiss="modal">Batal</button>
-	                			<button class="col btn btn-danger ml-2" id="delete-theory">Hapus</button>
+	                			<button class="col btn btn-outline mr-2" data-dismiss="modal">Batal</button>
+	                			<button class="col btn btn-active ml-2" id="delete-theory">Hapus</button>
+	                		</div>
+	                	</div>
+            		</div>
+            	</div>
+            </div>
+            <div class="modal" id="modal-finish" tabindex="-1" role="dialog" aria-labelledby="deleteTitle" aria-hidden="true">
+            	<div class="modal-dialog modal-dialog-centered" role="document">
+            		<div class="modal-content text-center p-3">
+            			<p class="py-5">Anda yakin ingin finish kelas <span class="font-weight-bold topic"></span>?</p>
+            			<div class="container">
+                			<div class="row">
+	                			<button class="col btn btn-outline mr-2" data-dismiss="modal">Batal</button>
+	                			<button class="col btn btn-active ml-2" id="finish">Finish</button>
+	                		</div>
+	                	</div>
+            		</div>
+            	</div>
+            </div>
+            <div class="modal" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="deleteTitle" aria-hidden="true">
+            	<div class="modal-dialog modal-dialog-centered" role="document">
+            		<div class="modal-content text-center p-3">
+            			<p class="py-5">Anda yakin ingin hapus kelas <span class="font-weight-bold topic"></span>?</p>
+            			<div class="container">
+                			<div class="row">
+	                			<button class="col btn btn-outline mr-2" data-toggle="modal" data-target="#option" data-dismiss="modal">Batal</button>
+	                			<button class="col btn btn-active ml-2" id="delete">Hapus</button>
 	                		</div>
 	                	</div>
             		</div>
@@ -151,7 +166,7 @@
             </div>
         </div>
     </section>
-@section('content')
+@endsection
 
 @section('script')
 	<script>const code = '{{$code}}'</script>

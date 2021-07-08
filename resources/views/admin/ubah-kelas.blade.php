@@ -66,9 +66,9 @@
                                 <label for="status" class="font-weight-bold">Status</label>
                                 <select class="custom-select" id="status" role="button">
                                     <option disabled selected>Pilih</option>
-                                    <option value="publish">Dibuka</option>
-                                    <option value="unpublish">Disimpan/Draf</option>
-                                    <option value="finish">Ditutup</option>
+                                    <option value="publish">Publish</option>
+                                    <option value="unpublish">Save Draft/Unpublish</option>
+                                    <option value="finish">Finish</option>
                                 </select>
                                 <div class="invalid-feedback"></div>
                             </div>

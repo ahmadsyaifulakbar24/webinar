@@ -15,6 +15,8 @@ $.ajax({
         $('#description').html(value.description)
         $('#ubah').attr('href', `${root}/admin/ubah/kelas/${code}`)
         $('#tambah-materi').attr('href', `${root}/admin/tambah/materi/${code}#materi`)
+        get_peserta(value.status)
+        if (value.status != 'finish') $('#btn-finish').show()
     }
 })
 
@@ -51,36 +53,44 @@ $.ajax({
 })
 
 // Peserta
-$.ajax({
-    url: `${api_url}/registration/fetch`,
-    type: 'GET',
-    data: {
-        training_id: code
-    },
-    beforeSend: function(xhr) {
-        xhr.setRequestHeader("Authorization", "Bearer " + token)
-    },
-    success: function(result) {
-        // console.log(result)
-        if (result.data != '') {
-            $.each(result.data, function(index, value) {
-                append = `<tr class="position-relative">
-					<td class="text-truncate text-center">${index + 1}.</td>
-					<td class="text-truncate text-capitalize">${value.user.name}</td>
-					<td class="text-truncate">${value.user.nik}</td>
-					<td class="text-truncate">${value.user.province.province}</td>
-					<td class="text-truncate">
-						<a href="${root}/sertifikat/${code}/${value.user.id}" target="_blank" class="btn btn-sm btn-outline">Unduh Sertifikat</a>
-					</td>
-				</tr>`
-	            $('#table-peserta').append(append)
-            })
-            $('#option-delete').hide()
-        } else {
-            $('#empty').show()
-        }
-    }
-})
+function get_peserta(status) {
+	$.ajax({
+	    url: `${api_url}/registration/fetch`,
+	    type: 'GET',
+	    data: {
+	        training_id: code
+	    },
+	    beforeSend: function(xhr) {
+	        xhr.setRequestHeader("Authorization", "Bearer " + token)
+	    },
+	    success: function(result) {
+	        // console.log(result)
+	        if (result.data != '') {
+	        	let download = ''
+	            $.each(result.data, function(index, value) {
+	            	if (status == 'finish') {
+	            		download = `<td class="text-truncate">
+							<a href="${root}/sertifikat/${code}/${value.user.id}" target="_blank" class="btn btn-sm btn-outline">Unduh Sertifikat</a>
+						</td>`
+	            	} else {
+	            		download = ''
+	            	}
+	                append = `<tr class="position-relative">
+						<td class="text-truncate text-center">${index + 1}.</td>
+						<td class="text-truncate text-capitalize">${value.user.name}</td>
+						<td class="text-truncate">${value.user.nik}</td>
+						<td class="text-truncate">${value.user.phone_number}</td>
+						${download}
+					</tr>`
+		            $('#table-peserta').append(append)
+	            })
+	            $('#option-delete').hide()
+	        } else {
+	            $('#empty').show()
+	        }
+	    }
+	})
+}
 
 // Delete Materi
 $(document).on('click', '.theory', function() {
@@ -104,6 +114,23 @@ $(document).on('click', '#delete-theory', function() {
     })
 })
 
+// Finish Kelas
+$(document).on('click', '#btn-finish', function() {
+    $('#modal-finish').modal('show')
+})
+$(document).on('click', '#finish', function() {
+    $.ajax({
+        url: `${api_url}/training/create_certificate/${code}`,
+        type: 'PATCH',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + token)
+        },
+        success: function(result) {
+            location.href = `${root}/admin/kelas/${code}`
+        }
+    })
+})
+
 // Delete Kelas
 $(document).on('click', '#delete', function() {
     $.ajax({
@@ -114,9 +141,6 @@ $(document).on('click', '#delete', function() {
         },
         success: function(result) {
             location.href = `${root}/admin/kelas`
-        },
-        error: function(xhr) {
-        	console.log(xhr)
         }
     })
 })
