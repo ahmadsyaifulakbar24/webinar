@@ -37,7 +37,7 @@ class UpdateTrainingController extends Controller
             'date' => ['required', 'date'],
             'time' => ['required', 'date_format:H:i:s'],
             'description' => ['required', 'string'],
-            'status' => ['required','in:publish,unpublish'],
+            'status' => ['required','in:publish,unpublish,finish'],
         ]);
 
         $input = $request->all();
