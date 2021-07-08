@@ -17,16 +17,16 @@ class UserSeeder extends Seeder
             'id' => 1,
             'name' => 'Admin',
             'email' => 'admin@admin.com',
-            'nik' => '1111111111111111',
+            'nik' => '9988112277336644',
             'gender' => 'laki-laki',
             'date_of_birth' => now(),
             'address' => 'admin',
             'province_id' => 11,
             'city_id' => 1101,
-            'phone_number' => '089657341120',
-            'photo' => 'admin.jpg',
+            'phone_number' => '081210294688',
+            'photo' => 'user_photo/admin.jpg',
             'user_role_id' => 1,
-            'password' => Hash::make('089657341120'),
+            'password' => Hash::make('081210294688'),
         ]);
     }
 }
