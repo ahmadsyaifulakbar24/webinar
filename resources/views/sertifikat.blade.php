@@ -81,13 +81,13 @@
 
         .code {
             margin-top: -40px;
-            margin-left: 200px;
+            margin-left: 250px;
         }
 
         .qrcode {
-            padding-top: 25px;
-            padding-left: 10px;
-            margin-bottom: -20px;
+            padding-top: 50px;
+            padding-left: 25px;
+            margin-bottom: -10px;
         }
     </style>
 
@@ -104,12 +104,12 @@
 	<div class="d-none" id="pdf">
 	    <img class="img-background" src="{{ asset('assets/images/back_sertifikat.png') }}" style="width:97%">
 	    <div class="isi-content">
-	    	<img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -160px; margin-left: -50px;">
+	    	<img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -180px; margin-left: -50px;">
 	        <div class="text-center col-lg-7 d-block mx-auto" style="margin-top:200px;">
 	            <div class="tahoma" style="margin-top:15px;">Diberikan Kepada :</div> 
 	            <div class="vivaldi" id="name"></div>
-	            <div class="tahoma">Sebagai : <span id="role">Peserta</span></div> 
-	            <div class="tahoma">Pada Kelas Kelas Online :</div>
+	            <div class="tahoma">Sebagai <u id="role">Peserta</u></div> 
+	            <div class="tahoma">Kelas Online/ Webinar :</div>
 	            <div class="tahoma font-pelatihan upercase" id="topic"></div>
 	            <div class="tahoma">Pada Tanggal <span id="date"></span>, Jam <span id="time"></span></div>
 	            <div class="tahoma">Diselenggarakan oleh :</div>
@@ -118,23 +118,23 @@
 	        <br>
 	        <div class="float-left">
 	            <div class="code text-center">
-	                <div class="qrcode mt-3"></div>
-	                <!-- <div class="mt-2">
+	                <div class="qrcode" id="qrcode"></div>
+	                <div class="mt-2">
 	                    <p style="white-space: pre-line; line-height: 0.8;">
-	                        <small style="font-size:12px">Sertifikat Sudah Diotorisasi</small>
-	                        <small style="font-size:12px">Secara Elektronik</small>
-	                        <small style="font-size:12px">http://siwira.id/kelas-online</small>
+	                        <small style="font-size:10px">Pindai untuk memeriksa</small>
+	                        <small style="font-size:10px">keaslian dokumen</small>
+	                        <!-- <small style="font-size:12px">http://siwira.id/kelas-online</small> -->
 	                    </p>
-	                </div> -->
+	                </div>
 	            </div>
 	        </div>
 	        <div class="float-right ttd-margin" style="margin-right: 200px;">
 	            <div class="col-lg-12 text-center">
 	                <div class="tahoma">Jakarta, <span id="ttd_tanggal"></span></div>
-	                <div class="tahoma">DEPUTI BIDANG PERKOPERASIAN</div>
-	                <img class="img-fluid" src="{{ asset('assets/images/harkop.png') }}" width="25%" style="position:absolute; right:500px; top:20px;">
-	                <img class="img-fluid" src="{{ asset('assets/images/cap.png') }}" width="35%" style="position:absolute; right:130px; top:20px;">
-	                <img class="img-fluid" src="{{ asset('assets/images/ttd.png') }}" width="25%" style="position:absolute; right:100px; top:20px;">
+	                <div class="tahoma">Deputi Bidang Perkoperasian</div>
+	                <img class="img-fluid" src="{{ asset('assets/images/harkop.png') }}" width="45%" style="position:absolute; right:290px; top:10px;">
+	                <img class="img-fluid" src="{{ asset('assets/images/cap.png') }}" width="45%" style="position:absolute; right:115px; top:20px;">
+	                <img class="img-fluid" src="{{ asset('assets/images/ttd.png') }}" width="35%" style="position:absolute; right:70px; top:20px;">
 	                <br><br><br>
 	                <div class="tahoma">Ahmad Zabadi, SH., MM </div>
 	            </div>
@@ -145,8 +145,10 @@
 	<script>const code = '{{$code}}'</script>
 	<script>const user = '{{$user}}'</script>
     <script src="{{asset('assets/js/date.js')}}"></script>
+	<script src="{{asset('assets/vendors/qrcode/qrcode.min.js')}}"></script>
     <script src="{{asset('assets/vendors/html2pdf/html2pdf.js')}}"></script>
     <script>
+    	let kode_kelas = ''
     	$.ajax({
 		    url: `${api_url}/training/fetch/${code}`,
 		    type: 'GET',
@@ -156,11 +158,14 @@
 		    success: function(result) {
 		        // console.log(result)
 		        let value = result.data
+		        kode_kelas = value.code
 		        $('#topic').html(value.topic)
 		        $('#date').html(tanggal2(value.date))
 		        $('#time').html(value.time.substr(0, 5) + ' WIB')
 		    }
 		})
+    	
+    	let nik = ''
     	$.ajax({
 		    url: `${api_url}/user/fetch/${user}`,
 		    type: 'GET',
@@ -170,10 +175,40 @@
 		    success: function(result) {
 		        // console.log(result)
 		        let value = result.data
+		        nik = value.nik
 		        $('#name').html(value.name)
 		        $('#photo_url').attr('src', value.photo_url)
 		    }
 		})
+
+    	$.ajax({
+		    url: `${api_url}/training/fetch_training_by_user`,
+		    type: 'GET',
+		    async: false,
+		    data: {
+		    	user_id: user
+		    },
+		    beforeSend: function(xhr) {
+		        xhr.setRequestHeader("Authorization", "Bearer " + token)
+		    },
+		    success: function(result) {
+		        // console.log(result)
+		        $.each(result.data, function(index, value) {
+			        // console.log(value)
+		        	if (value.id == code) {
+		        		new QRCode(document.getElementById('qrcode'), {
+					        text: `${root}/detail/${value.registration.qrcode}`,
+					        width: 70,
+					        height: 70,
+					        colorDark: '#000000',
+					        colorLight: '#ffffff',
+					        correctLevel: QRCode.CorrectLevel.H
+					    })
+		        	}
+		        })
+		    }
+		})
+
 		let date = new Date()
         let y = date.getFullYear()
         let m = date.getMonth() + 1
@@ -183,8 +218,7 @@
         $('#ttd_tanggal').html(tanggal2(`${y}-${m}-${d}`))
     	
     	$(document).ajaxStop(function() {
-    		// let filename = $("#file-name").text() + '.pdf'
-    		let filename = 'Sertifikat.pdf'
+    		let filename = `${kode_kelas}_${nik}.pdf`
             let element = $('#pdf').html()
             // console.log(element)
             let opt = {
@@ -198,7 +232,6 @@
             	$('#loading').remove()
             	$('#check').show()
             }).save()
-            // window.close()
     	})
     </script>
 </body>

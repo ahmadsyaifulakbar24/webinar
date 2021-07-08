@@ -127,7 +127,7 @@ $('form').submit(function(e) {
             }
             if (err.address) {
                 $('#address').addClass('is-invalid')
-                $('#address').siblings('.invalid-feedback').html('Masukkan alamat')
+                $('#address').siblings('.invalid-feedback').html('Masukkan alamat rumah')
             }
             if (err.province_id) {
                 $('#province_id').addClass('is-invalid')

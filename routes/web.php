@@ -55,3 +55,7 @@ Route::group(['middleware'=>['beforeMiddleware']], function () {
 		return view('sertifikat', compact('code', 'user'));
 	});
 });
+
+Route::get('detail/{code}', function($code) {
+	return view('detail', compact('code'));
+});

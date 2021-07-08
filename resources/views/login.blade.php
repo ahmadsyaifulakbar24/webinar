@@ -12,6 +12,12 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,800&display=swap">
 	<link rel="shortcut icon" href="{{asset('assets/images/logo/garuda.png')}}">
     <style>
+		body {
+    		background: url('assets/images/background/webinar.jpg');
+    		background-repeat: no-repeat;
+    		background-attachment: fixed;
+    		background-size: cover;
+    	}
 		@media only screen and (max-width: 576px) {
 		    .card-form {
 		        margin: 10px;
@@ -22,7 +28,7 @@
 		}
     </style>
 </head>
-<body class="bg-light">
+<body class="bg-lighet">
     <div class="card-form-login">
         <div class="card-form">
             <div class="card-body">

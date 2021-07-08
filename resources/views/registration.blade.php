@@ -12,6 +12,12 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,800&display=swap">
 	<link rel="shortcut icon" href="{{asset('assets/images/logo/garuda.png')}}">
     <style>
+		body {
+    		background: url('assets/images/background/webinar.jpg');
+    		background-repeat: no-repeat;
+    		background-attachment: fixed;
+    		background-size: cover;
+    	}
 		@media only screen and (max-width: 576px) {
 		    .card-form {
 		        margin: 10px;
@@ -73,7 +79,7 @@
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="form-group">
-                        <label for="address" class="font-weight-bold">Alamat*</label>
+                        <label for="address" class="font-weight-bold">Alamat Rumah*</label>
                         <textarea class="form-control" id="address" rows="3"></textarea>
                         <div class="invalid-feedback"></div>
                     </div>
@@ -97,7 +103,8 @@
                         <div class="invalid-feedback"></div>
                     </div>
                 	<div class="form-group">
-                        <label class="font-weight-bold">Pas Foto*</label><br>
+                        <label class="font-weight-bold">Pas Foto*</label>
+                        <div class="small text-secondary pb-2">*pasfoto nantinya digunakan sebagai foto peserta didalam e-sertifikat</div>
                         <div class="d-inline-block" id="choose" role="button">
                             <img src="{{url('assets/images/blank.png')}}" width="200" class="rounded border" id="image"><br>
                             <span class="text-primary" style="padding-left:70px;cursor:pointer">Pilih File</span>
