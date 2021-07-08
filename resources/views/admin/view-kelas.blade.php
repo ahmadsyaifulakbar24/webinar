@@ -77,8 +77,9 @@
 										<tr>
 											<th scope="col" class="text-center">No.</th>
 											<th scope="col">Nama</th>
-											<th scope="col">Nomor KTP</th>
+											<th scope="col">NIK (Nomor Induk Kependudukan)</th>
 											<th scope="col">Provinsi</th>
+											<th scope="col"></th>
 										</tr>
 									</thead>
 									<tbody id="table-peserta"></tbody>

@@ -9,9 +9,8 @@
 	<link rel="stylesheet" href="{{asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/css/loader.css')}}">
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-	<!-- <link rel="shortcut icon" href="{{asset('assets/images/icon.ico')}}"> -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,800&display=swap">
+	<link rel="shortcut icon" href="{{asset('assets/images/logo/garuda.png')}}">
     <style>
 		@media only screen and (max-width: 576px) {
 		    .card-form {
@@ -39,7 +38,7 @@
 					</div>
 					@endif
                     <div class="form-group">
-                        <label for="nik" class="font-weight-bold">NIK</label>
+                        <label for="nik" class="font-weight-bold">NIK (Nomor Induk Kependudukan)</label>
                         <input type="tel" class="form-control" id="nik" minlength="16" maxlength="16" required autofocus>
                         <div class="invalid-feedback"></div>
                     </div>

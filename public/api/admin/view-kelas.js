@@ -61,7 +61,7 @@ $.ajax({
         xhr.setRequestHeader("Authorization", "Bearer " + token)
     },
     success: function(result) {
-        // console.log(result)
+        console.log(result)
         if (result.data != '') {
             $.each(result.data, function(index, value) {
                 append = `<tr class="position-relative">
@@ -69,6 +69,9 @@ $.ajax({
 					<td class="text-truncate text-capitalize">${value.user.name}</td>
 					<td class="text-truncate">${value.user.nik}</td>
 					<td class="text-truncate">${value.user.province.province}</td>
+					<td class="text-truncate">
+						<a href="${root}/sertifikat/${code}/${value.user.id}" target="_blank" class="btn btn-sm btn-outline-primary">Unduh Sertifikat</a>
+					</td>
 				</tr>`
 	            $('#table-peserta').append(append)
             })
