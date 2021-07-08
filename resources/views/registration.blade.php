@@ -106,9 +106,9 @@
                         <div class="invalid-feedback"></div>
                     </div>
                     <div class="form-group pt-3">
-                        <button class="btn btn-active btn-block" id="submit" disabled>Isi Daftar Hadir</button>
+                        <button class="btn btn-active btn-block" id="submit" disabled>Submit</button>
                     </div>
-                    <a href="{{url('/')}}" class="btn btn-block btn-outline mb-3">Ambil Sertifikat</a>
+                    <!-- <a href="{{url('/')}}" class="btn btn-block btn-outline mb-3">Ambil Sertifikat</a> -->
                 </form>
             </div>
         </div>
