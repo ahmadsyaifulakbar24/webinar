@@ -33,4 +33,13 @@ class GetRegistrationController extends Controller
             'success get registration data'
         );
     }
+
+    public function fetch_by_qrcode($qrcode)
+    {
+        $registration = Registration::where('qrcode', $qrcode)->first();
+        return ResponseFormatter::success(
+            new RegistrationDetailResource($registration),
+            'success get registration data'
+        );
+    }
 }

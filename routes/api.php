@@ -59,6 +59,7 @@ Route::namespace('API')->group(function () {
         Route::namespace('Registration')->prefix('registration')->group(function () {
             Route::post('create', 'CreateRegistrationController@create');
             Route::get('fetch/{registration_id?}', 'GetRegistrationController@fetch');
+            Route::get('fetch_by_qrcode/{qrcode}', 'GetRegistrationController@fetch_by_qrcode');
             Route::delete('delete/{registration:id}', 'DeleteRegistrationController');
         });
     });
