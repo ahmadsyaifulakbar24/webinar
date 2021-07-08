@@ -12,7 +12,7 @@ $.ajax({
         let action = ''
         $.each(result.data, function(index, value) {
         	if (value.status == 'finish') {
-        		action = `<a href="${root}/sertifikat/${value.id}/${user_id}" target="_blank" class="bg-light pointer text-secondary text-center border-top px-3 py-2 mb-4" style="position:absolute;bottom:-1.5rem;width:100%">
+        		action = `<a href="${root}/sertifikat/${value.id}/${user_id}" target="_blank" class="btn btn-active pointer text-light text-secondary text-center border-top px-3 py-2 mb-4" style="position:absolute;bottom:-1.5rem;width:100%">
 					<small><i class="fa fa-copy pr-2"></i>Unduh Sertifikat</small>
 				</a>`
         	} else {

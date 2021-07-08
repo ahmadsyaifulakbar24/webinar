@@ -21,7 +21,7 @@
 		@media only screen and (max-width: 576px) {
 		    .card-form {
 		        margin: 10px;
-		        /*margin-top: 170px;*/
+		        margin-top: 170px;
 		        border: 1px solid #eaebef;
 		        border-radius: 5px;
 		    }
@@ -36,7 +36,7 @@
         		<hr>
                 <form id="form">
 					<div class="alert alert-danger" id="alert" role="alert" style="display:none">
-						<i class="mdi mdi-close-circle-outline pr-2"></i>NIK (Nomor Induk Kependudukan) Anda belum terdaftar didalam aplikasi, silahkan lakukan <a href="{{url('pengisian-daftar-hadir')}}" class="text-danger">Pengisian Daftar Hadir</a> terlebih dahulu untuk mengambil sertifikat.
+						<i class="mdi mdi-close-circle-outline pr-2"></i>NIK (Nomor Induk Kependudukan) dan Nomor Telepon tidak cocok.<br>Silahkan diingat dan coba masukan kembali.<br>Jika anda belum terdaftar didalam aplikasi, silahkan lakukan <a href="{{url('pengisian-daftar-hadir')}}" class="text-danger">Pengisian Daftar Hadir</a> terlebih dahulu.
 					</div>
 					@if(isset($_GET['registration']))
 					<div class="alert alert-success" role="alert">

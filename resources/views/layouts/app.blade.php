@@ -17,7 +17,7 @@
 	<nav class="navbar navbar-expand-xl navbar-light bg-white d-flex fixed-top shadow">
 	    <div class="container d-flex justify-content-between">
             <a class="navbar-brand" href="{{url('kelas')}}">
-                <img src="{{url('assets/images/logo/logo.png')}}" width="120" alt="SIWIRA" title="SIWIRA • Sistem Informasi Wirausaha">
+                <img src="{{url('assets/images/logo/logo.png')}}" width="150" alt="SIWIRA" title="SIWIRA • Sistem Informasi Wirausaha">
             </a>
         	<div class="btn btn-sm btn-danger" onclick="return logout()">Logout</div>
 	    </div>

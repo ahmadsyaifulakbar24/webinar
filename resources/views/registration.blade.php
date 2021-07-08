@@ -21,7 +21,7 @@
 		@media only screen and (max-width: 576px) {
 		    .card-form {
 		        margin: 10px;
-		        /*margin-top: 170px;*/
+		        margin-top: 170px;
 		        border: 1px solid #eaebef;
 		        border-radius: 5px;
 		    }
