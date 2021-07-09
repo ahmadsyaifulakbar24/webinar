@@ -129,14 +129,15 @@
 	                </div>
 	            </div>
 	        </div>
-	        <div class="float-right ttd-margin" style="margin-right: 200px;margin-top: 20px;">
+	        <div class="float-right ttd-margin" style="margin-right: 170px;margin-top: 20px;">
 	            <div class="col-lg-12 text-center">
 	                <div class="tahoma">Jakarta, <span id="ttd_tanggal"></span></div>
 	                <div class="tahoma">Deputi Bidang Perkoperasian</div>
+	                <div class="tahoma">Selaku Ketua Panitia Peringatan Hari Koperasi ke 74</div>
 	                <!-- <div class="tahoma">Kepala Biro Komunikasi dan Teknologi Informasi</div> -->
-	                <img class="img-fluid" src="{{ asset('assets/images/harkop.png') }}" width="90" style="position:absolute; right:320px; top:10px;">
-	                <img class="img-fluid" src="{{ asset('assets/images/cap.png') }}" width="90" style="position:absolute; right:115px; top:20px;">
-	                <img class="img-fluid" src="{{ asset('assets/images/ttd.png') }}" width="70" style="position:absolute; right:70px; top:20px;">
+	                <img class="img-fluid" src="{{ asset('assets/images/harkop.png') }}" width="90" style="position:absolute; right:350px; top:10px;">
+	                <img class="img-fluid" src="{{ asset('assets/images/cap.png') }}" width="90" style="position:absolute; right:175px; top:30px;">
+	                <img class="img-fluid" src="{{ asset('assets/images/ttd.png') }}" width="70" style="position:absolute; right:130px; top:20px;">
 	                <br><br><br>
 	                <div class="tahoma">Ahmad Zabadi, SH., MM</div>
 	                <!-- <div class="tahoma">Budi Mustopo</div> -->
