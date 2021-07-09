@@ -8,11 +8,11 @@ $.ajax({
         xhr.setRequestHeader("Authorization", "Bearer " + token)
     },
     success: function(result) {
-        // console.log(result)
+    	// console.log(result)
         let action = ''
         $.each(result.data, function(index, value) {
         	if (value.status == 'finish') {
-        		action = `<a href="${root}/sertifikat/${value.registration.id}" target="_blank" class="btn btn-active pointer text-light text-secondary text-center border-top px-3 py-2 mb-4" style="position:absolute;bottom:-1.5rem;width:100%">
+        		action = `<a href="${root}/sertifikat/${value.registration.id}/${value.registration.qrcode}" target="_blank" class="btn btn-active pointer text-light text-secondary text-center border-top px-3 py-2 mb-4" style="position:absolute;bottom:-1.5rem;width:100%">
 					<small><i class="fa fa-copy pr-2"></i>Unduh Sertifikat</small>
 				</a>`
         	} else {

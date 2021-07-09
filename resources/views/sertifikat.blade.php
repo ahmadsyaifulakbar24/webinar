@@ -106,7 +106,7 @@
 	    <div class="isi-content">
 	    	<!-- <img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -190px; margin-left: -50px;"> -->
 	    	<img id="photo_url" style="width: 100px; margin-top: 100px;" class="text-center">
-	        <div class="text-center col-lg-7 d-block mx-auto" style="margin-top:20px;">
+	        <div class="text-center col-lg-7 d-block mx-auto" style="margin-top:10px;">
 	            <div class="tahoma">Diberikan Kepada :</div> 
 	            <div class="vivaldi" id="name"></div>
 	            <div class="tahoma">Sebagai <u id="role"></u></div> 
@@ -133,11 +133,13 @@
 	            <div class="col-lg-12 text-center">
 	                <div class="tahoma">Jakarta, <span id="ttd_tanggal"></span></div>
 	                <div class="tahoma">Deputi Bidang Perkoperasian</div>
-	                <img class="img-fluid" src="{{ asset('assets/images/harkop.png') }}" width="45%" style="position:absolute; right:320px; top:10px;">
-	                <img class="img-fluid" src="{{ asset('assets/images/cap.png') }}" width="45%" style="position:absolute; right:115px; top:20px;">
-	                <img class="img-fluid" src="{{ asset('assets/images/ttd.png') }}" width="35%" style="position:absolute; right:70px; top:20px;">
+	                <!-- <div class="tahoma">Kepala Biro Komunikasi dan Teknologi Informasi</div> -->
+	                <img class="img-fluid" src="{{ asset('assets/images/harkop.png') }}" width="90" style="position:absolute; right:320px; top:10px;">
+	                <img class="img-fluid" src="{{ asset('assets/images/cap.png') }}" width="90" style="position:absolute; right:115px; top:20px;">
+	                <img class="img-fluid" src="{{ asset('assets/images/ttd.png') }}" width="70" style="position:absolute; right:70px; top:20px;">
 	                <br><br><br>
-	                <div class="tahoma">Ahmad Zabadi, SH., MM </div>
+	                <div class="tahoma">Ahmad Zabadi, SH., MM</div>
+	                <!-- <div class="tahoma">Budi Mustopo</div> -->
 	            </div>
 	        </div>
 	    </div>
