@@ -10,7 +10,7 @@ Route::group(['middleware'=>['afterMiddleware']], function () {
 	Route::get('/', function () {
 	    return view('login');
 	});
-	Route::get('pengisian-daftar-hadir', function () {
+	Route::get('pengisian-data-profil', function () {
 	    return view('registration');
 	});
 });
