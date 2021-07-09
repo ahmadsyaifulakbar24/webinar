@@ -50,20 +50,37 @@
                         <input type="tel" class="form-control" id="nik" minlength="16" maxlength="16">
                         <div class="invalid-feedback"></div>
                     </div>
-                    <div class="form-group">
-                        <label for="date_of_birth" class="font-weight-bold">Tanggal Lahir*</label>
-                        <input type="date" class="form-control" id="date_of_birth">
-                        <div class="invalid-feedback"></div>
-                    </div>
+                    <label for="date_of_birth" class="font-weight-bold d-block">Tanggal Lahir*</label>
+	                <div class="form-group">
+	                	<div class="row">
+			                <div class="col-4">
+			                    <select id="date" class="custom-select" role="button">
+			                    	<option value="" disabled selected>Pilih</option>
+			                    	@for ($i = 1; $i <= 31; $i++)
+				                    	@if ($i < 10)
+					                    	<option value="0{{$i}}">0{{$i}}</option>
+				                    	@else
+					                    	<option value="{{$i}}">{{$i}}</option>
+				                    	@endif
+			                    	@endfor
+			                    </select>
+			                </div>
+			                <div class="col-8 pl-0">
+			                    <input type="month" class="form-control" id="month">
+			                </div>
+		                </div>
+		                <input type="hidden" id="date_of_birth">
+	                    <div class="invalid-feedback"></div>
+	                </div>
                     <div class="form-group">
                         <label class="d-block font-weight-bold">Jenis Kelamin*</label>
                         <div class="custom-control custom-radio custom-control-inline">
                             <input name="gender" type="radio" class="custom-control-input" id="male" value="laki-laki">
-                            <label class="custom-control-label" for="male">Laki-Laki</label>
+                            <label class="custom-control-label" for="male" role="button">Laki-Laki</label>
                         </div>
                         <div class="custom-control custom-radio custom-control-inline">
                             <input name="gender" type="radio" class="custom-control-input" id="female" value="perempuan">
-                            <label class="custom-control-label" for="female">Perempuan</label>
+                            <label class="custom-control-label" for="female" role="button">Perempuan</label>
                         </div>
                         <div id="gender"></div>
                         <div class="invalid-feedback"></div>

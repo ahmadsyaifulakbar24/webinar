@@ -85,7 +85,7 @@
         }
 
         .qrcode {
-            padding-top: 50px;
+            padding-top: 80px;
             padding-left: 25px;
             margin-bottom: -10px;
         }
@@ -104,7 +104,7 @@
 	<div class="d-none" id="pdf">
 	    <img class="img-background" src="{{ asset('assets/images/back_sertifikat.png') }}" style="width:97%">
 	    <div class="isi-content">
-	    	<img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -180px; margin-left: -50px;">
+	    	<img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -190px; margin-left: -50px;">
 	        <div class="text-center col-lg-7 d-block mx-auto" style="margin-top:200px;">
 	            <div class="tahoma" style="margin-top:15px;">Diberikan Kepada :</div> 
 	            <div class="vivaldi" id="name"></div>
@@ -128,11 +128,11 @@
 	                </div>
 	            </div>
 	        </div>
-	        <div class="float-right ttd-margin" style="margin-right: 200px;">
+	        <div class="float-right ttd-margin" style="margin-right: 200px;margin-top: 20px;">
 	            <div class="col-lg-12 text-center">
 	                <div class="tahoma">Jakarta, <span id="ttd_tanggal"></span></div>
 	                <div class="tahoma">Deputi Bidang Perkoperasian</div>
-	                <img class="img-fluid" src="{{ asset('assets/images/harkop.png') }}" width="45%" style="position:absolute; right:290px; top:10px;">
+	                <img class="img-fluid" src="{{ asset('assets/images/harkop.png') }}" width="45%" style="position:absolute; right:320px; top:10px;">
 	                <img class="img-fluid" src="{{ asset('assets/images/cap.png') }}" width="45%" style="position:absolute; right:115px; top:20px;">
 	                <img class="img-fluid" src="{{ asset('assets/images/ttd.png') }}" width="35%" style="position:absolute; right:70px; top:20px;">
 	                <br><br><br>
@@ -222,10 +222,10 @@
             let element = $('#pdf').html()
             // console.log(element)
             let opt = {
-                margin: [0.3, 0.3],
+                margin: [0, 0],
                 filename: filename,
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
+                html2canvas: { scale: 3 },
                 jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
             }
             html2pdf().from(element).set(opt).toPdf().get('pdf').then(function(pdf) {

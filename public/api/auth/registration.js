@@ -77,7 +77,8 @@ $('form').submit(function(e) {
     fd.append('name', $('#name').val())
     fd.append('email', $('#email').val())
     fd.append('nik', $('#nik').val())
-    fd.append('date_of_birth', $('#date_of_birth').val())
+    // fd.append('date_of_birth', $('#date_of_birth').val())
+    fd.append('date_of_birth', `${$('#month').val()}-${$('#date').val()}`)
     fd.append('gender', $('input[type=radio][name=gender]:checked').val())
     fd.append('agency', $('#agency').val())
     fd.append('position', $('#position').val())
@@ -98,7 +99,7 @@ $('form').submit(function(e) {
         error: function(xhr) {
             $('#submit').attr('disabled', false)
             let err = xhr.responseJSON.errors
-            console.log(err)
+            // console.log(err)
             if (err.name) {
                 $('#name').addClass('is-invalid')
                 $('#name').siblings('.invalid-feedback').html('Masukkan nama lengkap.')
