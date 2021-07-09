@@ -12,51 +12,48 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:400,800&display=swap">
 	<link rel="shortcut icon" href="{{asset('assets/images/logo/garuda.png')}}">
 </head>
-<body class="bg-light">
+<body>
 	<div class="container">
-		<div class="card my-3" id="card" style="display: none">
-			<div class="card-header">
-				<h5>Detail Peserta</h5>
-			</div>
-			<div class="card-body">
-				<div class="row">
-					<div class="col-xl-2 col-lg-3">
-						<div class="d-flex flex-column align-items-center">
-							<img id="photo_url" class="img-fluid my-3">
-							<div id="qrcode" class="d-inline-block my-3"></div>
-						</div>
+		<div class="my-3" id="card" style="display: none">
+			<h5>Detail Peserta</h5>
+			<hr>
+			<div class="row">
+				<div class="col-xl-2 col-lg-3">
+					<div class="d-flex flex-column align-items-center">
+						<img id="photo_url" class="img-fluid my-3">
+						<div id="qrcode" class="d-inline-block my-3"></div>
 					</div>
-					<div class="col-xl-8 col-lg-7">
-						<table class="table table-borderless" border=0>
-							<tr>
-								<th>NIK (Nomor Induk Kependudukan)</th>
-								<td id="nik"></td>
-							</tr>
-							<tr>
-								<th>Nama Lengkap</th>
-								<td id="name"></td>
-							</tr>
-							<tr>
-								<th>Tanggal Lahir</th>
-								<td id="date_of_birth"></td>
-							</tr>
-							<tr>
-								<th>Topik</th>
-								<td id="topic"></td>
-							</tr>
-							<tr>
-								<th>Tanggal</th>
-								<td id="date"></td>
-							</tr>
-							<tr>
-								<th>Jam</th>
-								<td id="time"></td>
-							</tr>
-						</table>
-						<div class="text-center">
-							<img src="{{url('assets/images/valid.png')}}" class="mt-5">
-							<div class="font-weight-bold font-italic">Oleh KEMENKOP UKM RI</div>
-						</div>
+				</div>
+				<div class="col-xl-8 col-lg-7">
+					<table class="table table-borderless" border=0>
+						<tr>
+							<th>NIK (Nomor Induk Kependudukan)</th>
+							<td id="nik"></td>
+						</tr>
+						<tr>
+							<th>Nama Lengkap</th>
+							<td id="name"></td>
+						</tr>
+						<tr>
+							<th>Tanggal Lahir</th>
+							<td id="date_of_birth"></td>
+						</tr>
+						<tr>
+							<th>Topik</th>
+							<td id="topic"></td>
+						</tr>
+						<tr>
+							<th>Tanggal</th>
+							<td id="date"></td>
+						</tr>
+						<tr>
+							<th>Jam</th>
+							<td id="time"></td>
+						</tr>
+					</table>
+					<div class="text-center">
+						<img src="{{url('assets/images/valid.png')}}" class="mt-5">
+						<div class="font-weight-bold font-italic">Oleh KEMENKOP UKM RI</div>
 					</div>
 				</div>
 			</div>
