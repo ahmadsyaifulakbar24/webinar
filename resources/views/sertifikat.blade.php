@@ -104,11 +104,12 @@
 	<div class="d-none" id="pdf">
 	    <img class="img-background" src="{{ asset('assets/images/back_sertifikat.png') }}" style="width:97%">
 	    <div class="isi-content">
-	    	<img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -190px; margin-left: -50px;">
-	        <div class="text-center col-lg-7 d-block mx-auto" style="margin-top:200px;">
-	            <div class="tahoma" style="margin-top:15px;">Diberikan Kepada :</div> 
+	    	<!-- <img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -190px; margin-left: -50px;"> -->
+	    	<img id="photo_url" style="width: 100px; margin-top: 100px;" class="text-center">
+	        <div class="text-center col-lg-7 d-block mx-auto" style="margin-top:20px;">
+	            <div class="tahoma">Diberikan Kepada :</div> 
 	            <div class="vivaldi" id="name"></div>
-	            <div class="tahoma">Sebagai <u id="role">Peserta</u></div> 
+	            <div class="tahoma">Sebagai <u id="role"></u></div> 
 	            <div class="tahoma">Kelas Online/ Webinar :</div>
 	            <div class="tahoma font-pelatihan upercase" id="topic"></div>
 	            <div class="tahoma">Pada Tanggal <span id="date"></span>, Jam <span id="time"></span></div>
@@ -163,6 +164,8 @@
 		        
 		        $('#name').html(value.user.name)
 		        $('#photo_url').attr('src', value.user.photo_url)
+		        
+		        $('#role').html(value.role.param)
 
 		        let date = new Date()
 		        let y = date.getFullYear()
@@ -182,7 +185,7 @@
 			    })
 
 			    setTimeout(function() {
-				    let filename = `${value.qrcode}_${value.user.nik}.pdf`
+				    let filename = `${value.training.code}_${value.user.nik}.pdf`
 		            let element = $('#pdf').html()
 		            let opt = {
 		                margin: [0, 0],
