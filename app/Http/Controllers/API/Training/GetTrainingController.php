@@ -6,6 +6,7 @@ use App\Helpers\ResponseFormatter;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Registration\RegistrationUserResource;
 use App\Http\Resources\Training\TheoryResource;
+use App\Http\Resources\Training\TrainingRegistrationResource;
 use App\Http\Resources\Training\TrainingResource;
 use App\Models\User;
 use App\Models\Theory;
@@ -19,14 +20,17 @@ class GetTrainingController extends Controller
         $this->validate($request, [
             'limit' => ['nullable', 'numeric'],
             'code' => ['nullable', 'string'],
+            'with_registration' => ['nullable', 'boolean']
         ]);
 
         $limit = $request->input('limit', 15);
         $training = Training::query();
 
         if($training_id) {
+            $training_find = $training->find($training_id);
+            $training_result = ($request->with_registration == 1) ? new TrainingRegistrationResource($training_find) : new TrainingResource($training_find);
             return ResponseFormatter::success(
-                new TrainingResource($training->find($training_id)),
+                $training_result,
                 'success get training data'
             );
         }
