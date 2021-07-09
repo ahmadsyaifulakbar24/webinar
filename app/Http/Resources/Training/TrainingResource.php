@@ -26,6 +26,8 @@ class TrainingResource extends JsonResource
             'description' => $this->description,
             'code' => $this->code,
             'status' => $this->status,
+            'theory' => $this->theory,
+            'theory' => TheoryResource::collection($this->theory),
             'crated_at' => $this->crated_at,
             'updated_at' => $this->updated_at,
         ];
