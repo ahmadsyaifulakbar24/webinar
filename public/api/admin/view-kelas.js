@@ -70,7 +70,7 @@ function get_peserta(status) {
 	            $.each(result.data, function(index, value) {
 	            	if (status == 'finish') {
 	            		download = `<td class="text-truncate">
-							<a href="${root}/sertifikat/${code}/${value.user.id}" target="_blank" class="btn btn-sm btn-outline">Unduh Sertifikat</a>
+							<a href="${root}/sertifikat/${value.id}" target="_blank" class="btn btn-sm btn-outline">Unduh Sertifikat</a>
 						</td>`
 	            	} else {
 	            		download = ''

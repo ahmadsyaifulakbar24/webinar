@@ -1,6 +1,6 @@
 @extends('layouts/app')
 
-@section('title','Kelas')
+@section('title','Daftar Kelas Online')
 
 @section('style')
 	<style>
@@ -20,12 +20,12 @@
 @section('content')
     <section class="text-left">
         <div class="container">
-            <h5 class="font-weight-bold text-left">Daftar Kelas Online</h5>
+            <h5 class="font-weight-bold text-left">Daftar Kelas Online / Webinar</h5>
             <div class="row my-4" id="data">
 				<div class="col-xl-3 col-md-4 col-sm-6 mb-4">
-	                <div class="card text-center d-flex justify-content-center py-5" style="height:100%" data-toggle="modal" data-target="#modal-kelas" role="button">
+	                <div class="card text-center d-flex justify-content-center py-5 px-4" style="height:100%" data-toggle="modal" data-target="#modal-kelas" role="button">
 	                    <i class="mdi mdi-48px mdi-plus"></i>
-	                    <h6>Tambah Kelas Online</h6>
+	                    <h6>Tambah Absensi Kelas Online / Webinar</h6>
 	                </div>
             	</div>
             </div>
@@ -35,7 +35,7 @@
     	<div class="modal-dialog modal-dialog-centered" role="document">
     		<div class="modal-content">
     			<div class="modal-header">
-    				<h5 class="mb-0">Tambah Kelas Online</h5>
+    				<h5 class="mb-0">Tambah Absensi Kelas Online / Webinar</h5>
     			</div>
     			<form class="modal-body">
 	    			<div class="form-group">

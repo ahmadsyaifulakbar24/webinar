@@ -12,7 +12,7 @@ $.ajax({
         let action = ''
         $.each(result.data, function(index, value) {
         	if (value.status == 'finish') {
-        		action = `<a href="${root}/sertifikat/${value.id}/${user_id}" target="_blank" class="btn btn-active pointer text-light text-secondary text-center border-top px-3 py-2 mb-4" style="position:absolute;bottom:-1.5rem;width:100%">
+        		action = `<a href="${root}/sertifikat/${value.registration.id}" target="_blank" class="btn btn-active pointer text-light text-secondary text-center border-top px-3 py-2 mb-4" style="position:absolute;bottom:-1.5rem;width:100%">
 					<small><i class="fa fa-copy pr-2"></i>Unduh Sertifikat</small>
 				</a>`
         	} else {
@@ -22,7 +22,7 @@ $.ajax({
 			}
             append = `<div class="col-xl-3 col-md-4 col-sm-6 mb-4">
 				<div class="card pb-5" style="height:100%">
-					<a href="${root}/kelas/${value.id}" class="text-dark">
+					<a href="${root}/kelas/${value.registration.id}" class="text-dark">
 						<img class="card-img-top" src="${value.poster_url}">
 						<p class="text-justify mt-3 px-3">Topik: <b>${value.topic}</b></p>
 						<p class="pb-3 px-3">Kode Kelas: <b>${value.code}</b></p>

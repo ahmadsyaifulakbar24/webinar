@@ -143,96 +143,61 @@
 	</div>
     @include('layouts.partials.script')
 	<script>const code = '{{$code}}'</script>
-	<script>const user = '{{$user}}'</script>
     <script src="{{asset('assets/js/date.js')}}"></script>
 	<script src="{{asset('assets/vendors/qrcode/qrcode.min.js')}}"></script>
     <script src="{{asset('assets/vendors/html2pdf/html2pdf.js')}}"></script>
     <script>
-    	let kode_kelas = ''
     	$.ajax({
-		    url: `${api_url}/training/fetch/${code}`,
-		    type: 'GET',
-		    beforeSend: function(xhr) {
-		        xhr.setRequestHeader("Authorization", "Bearer " + token)
-		    },
-		    success: function(result) {
-		        // console.log(result)
-		        let value = result.data
-		        kode_kelas = value.code
-		        $('#topic').html(value.topic)
-		        $('#date').html(tanggal2(value.date))
-		        $('#time').html(value.time.substr(0, 5) + ' WIB')
-		    }
-		})
-    	
-    	let nik = ''
-    	$.ajax({
-		    url: `${api_url}/user/fetch/${user}`,
-		    type: 'GET',
-		    beforeSend: function(xhr) {
-		        xhr.setRequestHeader("Authorization", "Bearer " + token)
-		    },
-		    success: function(result) {
-		        // console.log(result)
-		        let value = result.data
-		        nik = value.nik
-		        $('#name').html(value.name)
-		        $('#photo_url').attr('src', value.photo_url)
-		    }
-		})
-
-    	$.ajax({
-		    url: `${api_url}/training/fetch_training_by_user`,
+		    url: `${api_url}/registration/fetch/${code}`,
 		    type: 'GET',
 		    async: false,
-		    data: {
-		    	user_id: user
-		    },
 		    beforeSend: function(xhr) {
 		        xhr.setRequestHeader("Authorization", "Bearer " + token)
 		    },
 		    success: function(result) {
 		        // console.log(result)
-		        $.each(result.data, function(index, value) {
-			        // console.log(value)
-		        	if (value.id == code) {
-		        		new QRCode(document.getElementById('qrcode'), {
-					        text: `${root}/detail/${value.registration.qrcode}`,
-					        width: 70,
-					        height: 70,
-					        colorDark: '#000000',
-					        colorLight: '#ffffff',
-					        correctLevel: QRCode.CorrectLevel.H
-					    })
-		        	}
-		        })
+		        let value = result.data
+		        $('#topic').html(value.training.topic)
+		        $('#date').html(tanggal2(value.training.date))
+		        $('#time').html(value.training.time.substr(0, 5) + ' WIB')
+		        
+		        $('#name').html(value.user.name)
+		        $('#photo_url').attr('src', value.user.photo_url)
+
+		        let date = new Date()
+		        let y = date.getFullYear()
+		        let m = date.getMonth() + 1
+		        let d = date.getDate()
+			    if (m.toString().length < 2) m = '0' + m
+		        if (d.toString().length < 2) d = '0' + d
+		        $('#ttd_tanggal').html(tanggal2(`${y}-${m}-${d}`))
+
+		        new QRCode(document.getElementById('qrcode'), {
+			        text: `${root}/detail/${value.qrcode}`,
+			        width: 70,
+			        height: 70,
+			        colorDark: '#000000',
+			        colorLight: '#ffffff',
+			        correctLevel: QRCode.CorrectLevel.H
+			    })
+
+			    setTimeout(function() {
+				    let filename = `${value.qrcode}_${value.user.nik}.pdf`
+		            let element = $('#pdf').html()
+		            let opt = {
+		                margin: [0, 0],
+		                filename: filename,
+		                image: { type: 'jpeg', quality: 0.98 },
+		                html2canvas: { scale: 3 },
+		                jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
+		            }
+		            html2pdf().from(element).set(opt).toPdf().get('pdf').then(function(pdf) {
+		            	$('#loading').remove()
+		            	$('#check').show()
+		            }).save()
+	            },500)
 		    }
 		})
-
-		let date = new Date()
-        let y = date.getFullYear()
-        let m = date.getMonth() + 1
-        let d = date.getDate()
-	    if (m.toString().length < 2) m = '0' + m
-        if (d.toString().length < 2) d = '0' + d
-        $('#ttd_tanggal').html(tanggal2(`${y}-${m}-${d}`))
-    	
-    	$(document).ajaxStop(function() {
-    		let filename = `${kode_kelas}_${nik}.pdf`
-            let element = $('#pdf').html()
-            // console.log(element)
-            let opt = {
-                margin: [0, 0],
-                filename: filename,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 3 },
-                jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
-            }
-            html2pdf().from(element).set(opt).toPdf().get('pdf').then(function(pdf) {
-            	$('#loading').remove()
-            	$('#check').show()
-            }).save()
-    	})
     </script>
 </body>
 </html>

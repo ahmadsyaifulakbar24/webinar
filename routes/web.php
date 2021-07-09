@@ -6,10 +6,6 @@ use App\Http\Controllers\SessionController;
 Route::get('session/login', [SessionController::class, 'createSession']);
 Route::get('session/logout', [SessionController::class, 'deleteSession']);
 
-Route::get('detail/{code}', function($code) {
-	return view('detail', compact('code'));
-});
-
 Route::group(['middleware'=>['afterMiddleware']], function () {
 	Route::get('/', function () {
 	    return view('login');
@@ -55,7 +51,11 @@ Route::group(['middleware'=>['beforeMiddleware']], function () {
 		});
 	});
 	
-	Route::get('sertifikat/{code}/{user}', function($code, $user) {
-		return view('sertifikat', compact('code', 'user'));
+	Route::get('sertifikat/{code}', function($code) {
+		return view('sertifikat', compact('code'));
 	});
+});
+
+Route::get('detail/{code}', function($code) {
+	return view('detail', compact('code'));
 });

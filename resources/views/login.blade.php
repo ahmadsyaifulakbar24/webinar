@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
-	<title>Daftar Hadir/ Ambil Sertifikat - Webinar</title>
+	<title>Daftar Hadir / Ambil Sertifikat - Webinar</title>
 	<link rel="stylesheet" href="{{asset('assets/vendors/bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
@@ -32,7 +32,7 @@
     <div class="card-form-login">
         <div class="card-form">
             <div class="card-body">
-        		<h5 class="font-weight-bold text-center">Daftar Hadir/ Ambil Sertifikat</h5>
+        		<h5 class="font-weight-bold text-center">Daftar Hadir / Ambil Sertifikat</h5>
         		<hr>
                 <form id="form">
 					<div class="alert alert-danger" id="alert" role="alert" style="display:none">

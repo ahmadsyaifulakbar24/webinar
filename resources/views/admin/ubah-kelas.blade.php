@@ -1,6 +1,6 @@
 @extends('layouts/app')
 
-@section('title','Ubah Kelas')
+@section('title','Ubah Kelas Online')
 
 @section('content')
     <section class="text-left">
@@ -11,7 +11,7 @@
                     	<div class="text-dark mr-2" onclick="return history.back()" role="button">
                     		<i class="mdi mdi-24px mdi-arrow-left"></i>
                     	</div>
-                        <h5 class="mb-0">Ubah Kelas</h5>
+                        <h5 class="mb-0">Ubah Kelas Online / Webinar</h5>
                     </div>
                     <div class="card p-4 mb-4 mt-3">
                     	<form>
@@ -73,7 +73,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
 	                        <div class="form-group pt-3">
-	                            <button class="btn btn-active btn-block" id="submit" disabled>Ubah Kelas</button>
+	                            <button class="btn btn-active btn-block" id="submit" disabled>Simpan</button>
 	                        </div>
 	                    </form>
                     </div>

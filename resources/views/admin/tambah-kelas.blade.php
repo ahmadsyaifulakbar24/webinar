@@ -1,6 +1,6 @@
 @extends('layouts/app')
 
-@section('title','Kelas')
+@section('title','Tambah Kelas Online')
 
 @section('content')
     <section class="text-left">
@@ -11,7 +11,7 @@
                     	<div class="text-dark mr-2" onclick="return history.back()" role="button">
                     		<i class="mdi mdi-24px mdi-arrow-left"></i>
                     	</div>
-                        <h5 class="mb-0">Tambah Kelas Online</h5>
+                        <h5 class="mb-0">Tambah Kelas Online / Webinar</h5>
                     </div>
                     <div class="card p-4 mb-4 mt-3">
                     	<form>
