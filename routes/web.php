@@ -51,8 +51,8 @@ Route::group(['middleware'=>['beforeMiddleware']], function () {
 		});
 	});
 	
-	Route::get('sertifikat/{code}', function($code) {
-		return view('sertifikat', compact('code'));
+	Route::get('sertifikat/{code}/{qrcode}', function($code, $qrcode) {
+		return view('sertifikat', compact('code', 'qrcode'));
 	});
 });
 

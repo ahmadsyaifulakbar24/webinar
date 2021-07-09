@@ -176,7 +176,9 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         // image resize package
-        Intervention\Image\ImageServiceProvider::class
+        Intervention\Image\ImageServiceProvider::class,
+        // Qrcode
+        SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class
     ],
 
     /*
@@ -230,7 +232,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         // image resize package
-        'Image' => Intervention\Image\Facades\Image::class
+        'Image' => Intervention\Image\Facades\Image::class,
+        // Qrcode package
+        'QrCode' => SimpleSoftwareIO\QrCode\Facades\QrCode::class
     ],
 
 ];

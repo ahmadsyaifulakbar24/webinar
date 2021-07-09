@@ -86,7 +86,7 @@
 
         .qrcode {
             padding-top: 80px;
-            padding-left: 25px;
+            padding-left: 0px;
             margin-bottom: -10px;
         }
     </style>
@@ -119,7 +119,7 @@
 	        <br>
 	        <div class="float-left">
 	            <div class="code text-center">
-	                <div class="qrcode" id="qrcode"></div>
+	                <div class="qrcode" id="qrcode">{!! QrCode::size(70)->generate(Request::root().'/detail/'.$qrcode) !!}</div>
 	                <div class="mt-2">
 	                    <p style="white-space: pre-line; line-height: 0.8;">
 	                        <small style="font-size:10px">Pindai untuk memeriksa</small>
@@ -175,30 +175,28 @@
 		        if (d.toString().length < 2) d = '0' + d
 		        $('#ttd_tanggal').html(tanggal2(`${y}-${m}-${d}`))
 
-		        new QRCode(document.getElementById('qrcode'), {
-			        text: `${root}/detail/${value.qrcode}`,
-			        width: 70,
-			        height: 70,
-			        colorDark: '#000000',
-			        colorLight: '#ffffff',
-			        correctLevel: QRCode.CorrectLevel.H
-			    })
+		        // new QRCode(document.getElementById('qrcode'), {
+			    //     text: `${root}/detail/${value.qrcode}`,
+			    //     width: 70,
+			    //     height: 70,
+			    //     colorDark: '#000000',
+			    //     colorLight: '#ffffff',
+			    //     correctLevel: QRCode.CorrectLevel.H
+			    // })
 
-			    setTimeout(function() {
-				    let filename = `${value.training.code}_${value.user.nik}.pdf`
-		            let element = $('#pdf').html()
-		            let opt = {
-		                margin: [0, 0],
-		                filename: filename,
-		                image: { type: 'jpeg', quality: 0.98 },
-		                html2canvas: { scale: 3 },
-		                jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
-		            }
-		            html2pdf().from(element).set(opt).toPdf().get('pdf').then(function(pdf) {
-		            	$('#loading').remove()
-		            	$('#check').show()
-		            }).save()
-	            },500)
+				let filename = `${value.training.code}_${value.user.nik}.pdf`
+				let element = $('#pdf').html()
+				let opt = {
+					margin: [0, 0],
+					filename: filename,
+					image: { type: 'jpeg', quality: 0.98 },
+					html2canvas: { scale: 3 },
+					jsPDF: { unit: 'in', format: 'a4', orientation: 'landscape' }
+				}
+				html2pdf().from(element).set(opt).toPdf().get('pdf').then(function(pdf) {
+					$('#loading').remove()
+					$('#check').show()
+				}).save()
 		    }
 		})
     </script>

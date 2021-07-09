@@ -15,7 +15,7 @@ $.ajax({
         $('#description').html(value.training.description)
         if (value.training.status == 'finish') {
         	$('#download').show()
-        	$('#download').attr('href', `${root}/sertifikat/${value.id}`)
+        	$('#download').attr('href', `${root}/sertifikat/${value.id}/${value.qrcode}`)
         } else {
         	$('#download').hide()
         }
