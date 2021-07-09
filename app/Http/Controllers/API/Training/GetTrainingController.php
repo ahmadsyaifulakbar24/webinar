@@ -40,7 +40,7 @@ class GetTrainingController extends Controller
         }
 
         return ResponseFormatter::success(
-            TrainingResource::collection($training->paginate($limit)),
+            TrainingResource::collection($training->orderBy('id', 'DESC')->paginate($limit)),
             'success get Training resource'
         );
     }
@@ -61,7 +61,7 @@ class GetTrainingController extends Controller
         }
 
         return ResponseFormatter::success(
-            TheoryResource::collection($training->theory),
+            TheoryResource::collection($training->theory()->orderBy('id', 'DESC')->get()),
             'success get theory data'
         );
     }
@@ -89,7 +89,7 @@ class GetTrainingController extends Controller
 
         $user = User::find($request->user_id);
         return ResponseFormatter::success(
-            RegistrationUserResource::collection($user->training),
+            RegistrationUserResource::collection($user->training()->orderBy('id', 'DESC')->get()),
             'success get training data'
         );
     }
