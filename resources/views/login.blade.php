@@ -36,7 +36,7 @@
         		<hr>
                 <form id="form">
 					<div class="alert alert-danger" id="alert" role="alert" style="display:none">
-						<i class="mdi mdi-close-circle-outline pr-2"></i>NIK (Nomor Induk Kependudukan) dan Nomor Telepon tidak cocok.<br>Silahkan diingat dan coba masukan kembali.<br>Jika anda belum terdaftar didalam aplikasi, silahkan lakukan <a href="{{url('pengisian-daftar-hadir')}}" class="text-danger">Pengisian Data Profil</a> terlebih dahulu.
+						<i class="mdi mdi-close-circle-outline pr-2"></i>NIK (Nomor Induk Kependudukan) dan Nomor Telepon tidak cocok.<br>Silahkan diingat dan coba masukan kembali.<br>Jika anda belum terdaftar didalam aplikasi, silahkan lakukan <a href="{{url('pengisian-data-profil')}}" class="text-danger">Pengisian Data Profil</a> terlebih dahulu.
 					</div>
 					@if(isset($_GET['registration']))
 					<div class="alert alert-success" role="alert">
@@ -56,7 +56,7 @@
                     <div class="form-group pt-3">
                         <button class="btn btn-active btn-block" id="submit">Masuk</button>
                     </div>
-                    <a href="{{url('pengisian-daftar-hadir')}}" class="btn btn-block btn-outline mb-3">Pengisian Data Profil</a>
+                    <a href="{{url('pengisian-data-profil')}}" class="btn btn-block btn-outline mb-3">Pengisian Data Profil</a>
                 </form>
             </div>
         </div>
