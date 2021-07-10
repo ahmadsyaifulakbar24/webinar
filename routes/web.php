@@ -43,6 +43,11 @@ Route::group(['middleware'=>['beforeMiddleware']], function () {
 		Route::get('admin/profil/{id}', function($id) {
 			return view('admin/profil', compact('id'));
 		});
+		
+		// Excel
+		Route::get('download/excel/{id}', function($id) {
+			return view('excel', compact('id'));
+		});
 
 		// Route::get('kelas-online/kelas/{token}/export', 'ExportController@profile_external_export')->name('peserta_external_export');
 	});

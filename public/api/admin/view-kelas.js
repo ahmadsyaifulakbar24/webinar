@@ -20,6 +20,7 @@ $.ajax({
         if (value.status == 'finish') {
         	finish = true
         	$('#btn-excel').show()
+	        $('#btn-excel').attr('href', `${root}/download/excel/${code}`)
         } else {
         	$('#btn-finish').show()
         }

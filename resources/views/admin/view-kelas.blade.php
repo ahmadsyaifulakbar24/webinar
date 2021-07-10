@@ -31,7 +31,7 @@
 								</div>
                         		<img id="poster" class="rounded" style="width:100%">
                         		<div class="btn btn-block btn-active mt-3" id="btn-finish" style="display: none;">Finish</div>
-                        		<div class="btn btn-block btn-active mt-3" id="btn-excel" style="display: none;">Unduh Excel</div>
+                        		<a target="_blank" class="btn btn-block btn-active mt-3" id="btn-excel" style="display: none;">Unduh Excel</a>
                         	</div>
                     		<div class="col-md-8 col-sm-8">
 	                        	<div class="form-group">
