@@ -36,7 +36,8 @@
         		<hr>
                 <form>
                     <div class="form-group">
-                        <label for="name" class="font-weight-bold">Nama Lengkap*</label>
+                        <label for="name" class="font-weight-bold mb-0">Nama Lengkap*</label>
+                        <div class="small text-secondary pb-2">*tanpa gelar</div>
                         <input type="text" class="form-control" id="name" autofocus>
                         <div class="invalid-feedback"></div>
                     </div>
