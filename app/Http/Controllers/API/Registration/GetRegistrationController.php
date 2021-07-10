@@ -26,10 +26,7 @@ class GetRegistrationController extends Controller
             ]);
             
             $limit = $request->input('limit', 15);
-            return ResponseFormatter::success(
-                RegistrationResource::collection($registration->where('training_id', $request->training_id)->orderBy('id', 'DESC')->paginate($limit)),
-                'success get registration data'
-            );
+            return RegistrationResource::collection($registration->where('training_id', $request->training_id)->orderBy('id', 'DESC')->paginate($limit));
         }
     }
 

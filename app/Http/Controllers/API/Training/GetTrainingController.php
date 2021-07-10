@@ -39,10 +39,7 @@ class GetTrainingController extends Controller
             return $this->training_by_code($training, $request->code);
         }
 
-        return ResponseFormatter::success(
-            TrainingResource::collection($training->orderBy('id', 'DESC')->paginate($limit)),
-            'success get Training resource'
-        );
+        return TrainingResource::collection($training->orderBy('id', 'DESC')->paginate($limit));
     }
 
     public function fetch_theory(Request $request, $theory_id = null)
