@@ -19,7 +19,12 @@
             <a class="navbar-brand" href="{{url('kelas')}}">
                 <img src="{{url('assets/images/logo/logo.png')}}" width="150" alt="SIWIRA" title="SIWIRA • Sistem Informasi Wirausaha">
             </a>
-        	<div class="btn btn-sm btn-danger" onclick="return logout()">Logout</div>
+            <div>
+            	@if(session("role") == 200)
+            	<a href="{{url('profil')}}" class="btn btn-sm btn-active">Profil</a>
+            	@endif
+	        	<div class="btn btn-sm btn-outline" onclick="return logout()">Logout</div>
+	        </div>
 	    </div>
 	</nav>
 	@yield('content')

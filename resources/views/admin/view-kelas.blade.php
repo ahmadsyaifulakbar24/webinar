@@ -82,6 +82,7 @@
 											<th scope="col">NIK (Nomor Induk Kependudukan)</th>
 											<th scope="col">Nomor Telepon</th>
 											<th scope="col"></th>
+											<th scope="col"></th>
 										</tr>
 									</thead>
 									<tbody id="table-peserta"></tbody>

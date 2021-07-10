@@ -39,6 +39,11 @@ Route::group(['middleware'=>['beforeMiddleware']], function () {
 			return view('admin/ubah-materi', compact('code', 'theory'));
 		});
 
+		// Edit Profil
+		Route::get('admin/profil/{id}', function($id) {
+			return view('admin/profil', compact('id'));
+		});
+
 		// Route::get('kelas-online/kelas/{token}/export', 'ExportController@profile_external_export')->name('peserta_external_export');
 	});
 
@@ -48,6 +53,11 @@ Route::group(['middleware'=>['beforeMiddleware']], function () {
 		});
 		Route::get('kelas/{code}', function($code) {
 			return view('view-kelas', compact('code'));
+		});
+
+		// Profil
+		Route::get('profil', function() {
+			return view('profil');
 		});
 	});
 	

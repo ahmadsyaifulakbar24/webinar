@@ -45,8 +45,8 @@ $.ajax({
 					<td class="text-truncate">${value.theory}</td>
 					<td class="text-truncate">${value.jpl}</td>
 					<td class="text-truncate">
-						<a href="${root}/admin/ubah/materi/${code}/${value.id}#materi" class="btn btn-sm btn-outline-primary">Ubah</a>
-						<div class="btn btn-sm btn-outline-danger theory" data-id="${value.id}" data-name="${value.theory}">Hapus</div>
+						<a href="${root}/admin/ubah/materi/${code}/${value.id}#materi" class="btn btn-sm btn-outline">Ubah</a>
+						<div class="btn btn-sm btn-outline theory" data-id="${value.id}" data-name="${value.theory}">Hapus</div>
 					</td>
 				</tr>`
                 $('#table-materi').append(appendMateri)
@@ -89,6 +89,9 @@ function get_data(page) {
 						<td class="text-truncate text-capitalize">${value.user.name}</td>
 						<td class="text-truncate">${value.user.nik}</td>
 						<td class="text-truncate">${value.user.phone_number}</td>
+						<td class="text-truncate">
+							<a href="${root}/admin/profil/${value.user.id}" class="btn btn-sm btn-outline">Ubah</a>
+						</td>
 						${download}
 					</tr>`
 		            $('#table-peserta').append(append)
