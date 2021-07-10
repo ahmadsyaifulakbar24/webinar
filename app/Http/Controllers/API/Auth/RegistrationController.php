@@ -31,6 +31,7 @@ class RegistrationController extends Controller
         ]);
 
         $input = $request->all();
+        $input['name'] = Str::title($request->name);
         $input['user_role_id'] = 200;
         $input['password'] = Hash::make($request->phone_number);
 
