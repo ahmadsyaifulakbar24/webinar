@@ -3960,6 +3960,14 @@ class CitySeeder extends Seeder
             'state_capital' => ''
         ]);
 
+        DB::table('cities')->insert([
+            'id' => 7212,
+            'province_id' => 72,
+            'city' => 'Kab. Morowali Utara',
+            'type' => '2',
+            'state_capital' => ''
+        ]);
+
 
 
         DB::table('cities')->insert([
