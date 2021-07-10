@@ -21,7 +21,7 @@
             </a>
             <div>
             	@if(session("role") == 200)
-            	<a href="{{url('profil')}}" class="btn btn-sm btn-active">Profil</a>
+            	<a href="{{url('profil')}}" class="btn btn-sm btn-active px-3 mr-3">Profil</a>
             	@endif
 	        	<div class="btn btn-sm btn-outline" onclick="return logout()">Logout</div>
 	        </div>

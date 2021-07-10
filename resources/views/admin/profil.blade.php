@@ -11,7 +11,7 @@
                     	<div class="text-dark mr-2" onclick="return history.back()" role="button">
                     		<i class="mdi mdi-24px mdi-arrow-left"></i>
                     	</div>
-                        <h5 class="mb-0">Ubah Profil</h5>
+                        <h5 class="font-weight-bold mb-0">Ubah Profil</h5>
                     </div>
                     <div class="alert alert-success mt-2" id="success" role="alert" style="display:none">
 						<i class="mdi mdi-check-circle-outline pr-2"></i>Profil telah disimpan

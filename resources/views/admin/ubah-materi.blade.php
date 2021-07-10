@@ -9,7 +9,7 @@
                     	<div class="text-dark mr-2" onclick="return history.back()" role="button">
                     		<i class="mdi mdi-24px mdi-arrow-left"></i>
                     	</div>
-                        <h5 class="mb-0">Ubah Materi</h5>
+                        <h5 class="font-weight-bold mb-0">Ubah Materi</h5>
                     </div>
                     <div id="biodata" class="mt-3">
                         <div class="card p-4 mb-4">
