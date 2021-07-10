@@ -64,7 +64,7 @@ function get_data(page) {
 	    url: `${api_url}/registration/fetch`,
 	    type: 'GET',
 	    data: {
-	    	limit: 1,
+	    	limit: 15,
 	    	page: page,
 	        training_id: code
 	    },
