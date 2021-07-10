@@ -1,4 +1,4 @@
-let finish = true
+let finish = false
 
 $.ajax({
     url: `${api_url}/training/fetch/${code}`,
@@ -17,8 +17,10 @@ $.ajax({
         $('#description').html(value.description)
         $('#ubah').attr('href', `${root}/admin/ubah/kelas/${code}`)
         $('#tambah-materi').attr('href', `${root}/admin/tambah/materi/${code}#materi`)
-        if (value.status != 'finish') {
-        	finish = false
+        if (value.status == 'finish') {
+        	finish = true
+        	$('#btn-excel').show()
+        } else {
         	$('#btn-finish').show()
         }
         get_data(1)

@@ -54,6 +54,7 @@ function readFile() {
 }
 document.getElementById("photo").addEventListener("change", readFile)
 
+let name, nik, phone_number
 function get_data() {
 	$.ajax({
 	    url: `${api_url}/user/fetch/${user_id}`,
@@ -65,8 +66,10 @@ function get_data() {
 	        // console.log(result)
 	        let value = result.data
 	        $('#name').val(value.name)
+	        name = value.name
 	        $('#email').val(value.email)
 	        $('#nik').val(value.nik)
+	        nik = value.nik
 	        $('#date').val(value.date_of_birth.substr(8,3))
 	        $('#month').val(value.date_of_birth.substr(0,7))
 	        if (value.gender == "laki-laki") {
@@ -80,6 +83,7 @@ function get_data() {
 	        $('#province_id').val(value.province.id)
 			get_city(value.province.id, value.city.id)	        
 	        $('#phone_number').val(value.phone_number)
+	        phone_number = value.phone_number
 	        $('#image').attr('src', value.photo_url)
 	    }
 	})
@@ -91,9 +95,11 @@ $('form').submit(function(e) {
     $('#submit').attr('disabled', true)
     $('.is-invalid').removeClass('is-invalid')
     let fd = new FormData
-    fd.append('name', $('#name').val())
+    // fd.append('name', $('#name').val())
+    fd.append('name', name)
     fd.append('email', $('#email').val())
-    fd.append('nik', $('#nik').val())
+    // fd.append('nik', $('#nik').val())
+    fd.append('nik', nik)
     // fd.append('date_of_birth', $('#date_of_birth').val())
     fd.append('date_of_birth', `${$('#month').val()}-${$('#date').val()}`)
     fd.append('gender', $('input[type=radio][name=gender]:checked').val())
@@ -102,7 +108,8 @@ $('form').submit(function(e) {
     fd.append('address', $('#address').val())
     fd.append('province_id', $('#province_id').val())
     fd.append('city_id', $('#city_id').val())
-    fd.append('phone_number', $('#phone_number').val())
+    // fd.append('phone_number', $('#phone_number').val())
+    fd.append('phone_number', phone_number)
     if ($('#photo')[0].files[0] != null) fd.append('photo', $('#photo')[0].files[0])
     $.ajax({
         url: `${api_url}/user/update/${user_id}`,
