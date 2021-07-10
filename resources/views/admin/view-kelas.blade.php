@@ -111,6 +111,32 @@
 									</li>
 								</ul>
 							</nav> -->
+							<div class="none" id="pagination">
+								<div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+									<small class="text-secondary pb-3 pb-md-0" id="pagination-label"></small>
+									<nav>
+										<ul class="pagination pagination-sm mb-0" data-filter="request">
+											<li class="page page-item disabled" id="first" role="button">
+												<span class="page-link"><i class="mdi mdi-chevron-double-left"></i></span>
+											</li>
+											<li class="page page-item disabled" id="prev" role="button">
+												<span class="page-link"><i class="mdi mdi-chevron-left"></i></span>
+											</li>
+											<li class="page page-item" id="prevCurrentDouble" role="button"><span class="page-link"></span></li>
+											<li class="page page-item" id="prevCurrent" role="button"><span class="page-link"></span></li>
+											<li class="page page-item" id="current" role="button"><span class="page-link"></span></li>
+											<li class="page page-item" id="nextCurrent" role="button"><span class="page-link"></span></li>
+											<li class="page page-item" id="nextCurrentDouble" role="button"><span class="page-link"></span></li>
+											<li class="page page-item" id="next" role="button">
+												<span class="page-link"><i class="mdi mdi-chevron-right"></i></span>
+											</li>
+											<li class="page page-item" id="last" role="button">
+												<span class="page-link"><i class="mdi mdi-chevron-double-right"></i></span>
+											</li>
+										</ul>
+									</nav>
+								</div>
+							</div>
 						</div>
                     </div>
                 </div>
