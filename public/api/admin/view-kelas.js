@@ -1,3 +1,5 @@
+let finish = true
+
 $.ajax({
     url: `${api_url}/training/fetch/${code}`,
     type: 'GET',
@@ -15,7 +17,10 @@ $.ajax({
         $('#description').html(value.description)
         $('#ubah').attr('href', `${root}/admin/ubah/kelas/${code}`)
         $('#tambah-materi').attr('href', `${root}/admin/tambah/materi/${code}#materi`)
-        if (value.status != 'finish') $('#btn-finish').show()
+        if (value.status != 'finish') {
+        	finish = false
+        	$('#btn-finish').show()
+        }
         get_data(1)
     }
 })
@@ -59,7 +64,7 @@ function get_data(page) {
 	    url: `${api_url}/registration/fetch`,
 	    type: 'GET',
 	    data: {
-	    	limit: 15,
+	    	limit: 1,
 	    	page: page,
 	        training_id: code
 	    },
@@ -72,13 +77,13 @@ function get_data(page) {
 	        	let download = ''
 	        	let from = result.meta.from
 	            $.each(result.data, function(index, value) {
-	            	// if (status == 'finish') {
+	            	if (finish == true) {
 	            		download = `<td class="text-truncate">
 							<a href="${root}/sertifikat/${value.id}/${value.qrcode}" target="_blank" class="btn btn-sm btn-outline">Unduh Sertifikat</a>
 						</td>`
-	            	// } else {
-	            	// 	download = ''
-	            	// }
+	            	} else {
+	            		download = ''
+	            	}
 	                append = `<tr class="position-relative">
 						<td class="text-truncate text-center">${from}.</td>
 						<td class="text-truncate text-capitalize">${value.user.name}</td>
