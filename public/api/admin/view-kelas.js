@@ -15,8 +15,8 @@ $.ajax({
         $('#description').html(value.description)
         $('#ubah').attr('href', `${root}/admin/ubah/kelas/${code}`)
         $('#tambah-materi').attr('href', `${root}/admin/tambah/materi/${code}#materi`)
-        get_peserta(value.status)
         if (value.status != 'finish') $('#btn-finish').show()
+        get_data(1)
     }
 })
 
@@ -53,11 +53,14 @@ $.ajax({
 })
 
 // Peserta
-function get_peserta(status) {
+function get_data(page) {
+	$('#table-peserta').empty()
 	$.ajax({
 	    url: `${api_url}/registration/fetch`,
 	    type: 'GET',
 	    data: {
+	    	limit: 15,
+	    	page: page,
 	        training_id: code
 	    },
 	    beforeSend: function(xhr) {
@@ -67,24 +70,28 @@ function get_peserta(status) {
 	        // console.log(result)
 	        if (result.data != '') {
 	        	let download = ''
+	        	let from = result.meta.from
 	            $.each(result.data, function(index, value) {
-	            	if (status == 'finish') {
+	            	// if (status == 'finish') {
 	            		download = `<td class="text-truncate">
 							<a href="${root}/sertifikat/${value.id}/${value.qrcode}" target="_blank" class="btn btn-sm btn-outline">Unduh Sertifikat</a>
 						</td>`
-	            	} else {
-	            		download = ''
-	            	}
+	            	// } else {
+	            	// 	download = ''
+	            	// }
 	                append = `<tr class="position-relative">
-						<td class="text-truncate text-center">${index + 1}.</td>
+						<td class="text-truncate text-center">${from}.</td>
 						<td class="text-truncate text-capitalize">${value.user.name}</td>
 						<td class="text-truncate">${value.user.nik}</td>
 						<td class="text-truncate">${value.user.phone_number}</td>
 						${download}
 					</tr>`
 		            $('#table-peserta').append(append)
+		            from++
 	            })
 	            $('#option-delete').hide()
+	            $('#pagination').show()
+	            pagination(result.links, result.meta, result.meta.path)
 	        } else {
 	            $('#empty').show()
 	        }
