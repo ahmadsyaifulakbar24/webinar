@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\User\UserResource;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -31,6 +32,8 @@ class UpdateUserController extends Controller
         ]);
 
         $input = $request->all();
+        $input['name'] = Str::title($request->name);
+        $input['password'] = Hash::make($request->phone_number);
         
         if($request->file('photo')) {
             $photo_name = Str::random(30) .'.'. $request->photo->getClientOriginalExtension();
