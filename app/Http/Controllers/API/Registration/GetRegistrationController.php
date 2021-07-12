@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Registration\RegistrationDetailResource;
 use App\Http\Resources\Registration\RegistrationResource;
 use App\Models\Registration;
+use App\Models\Training;
 use Illuminate\Http\Request;
 
 class GetRegistrationController extends Controller
@@ -22,10 +23,16 @@ class GetRegistrationController extends Controller
         } else {
             $this->validate($request, [
                 'limit' => ['nullable', 'numeric'],
-                'training_id' => ['required', 'exists:trainings,id']
+                'training_id' => ['required', 'exists:trainings,id'],
+                'search' => ['nullable', 'string'],
             ]);
-            
             $limit = $request->input('limit', 15);
+            $registration->joinUser();
+
+            if($request->search) {
+                $registration->where('name', 'like', '%'.$request->search.'%');
+            }
+
             return RegistrationResource::collection($registration->where('training_id', $request->training_id)->orderBy('id', 'DESC')->paginate($limit));
         }
     }

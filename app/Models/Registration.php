@@ -30,4 +30,11 @@ class Registration extends Model
     {
         return $this->belongsTo(Param::class, 'role_id');
     }
+
+    public function scopeJoinUser($query)
+    {
+        return $query->from('registrations AS a')
+                ->join('users AS b', 'b.id', '=', 'a.user_id')
+                ->select('a.*', 'b.name');
+    }
 }
