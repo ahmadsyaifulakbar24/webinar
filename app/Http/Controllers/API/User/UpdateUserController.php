@@ -17,9 +17,7 @@ class UpdateUserController extends Controller
     public function __invoke(Request $request, User $user)
     {
         $this->validate($request, [
-            'name' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'nik' => ['required', 'numeric', 'unique:users,nik,'.$user->nik.',nik'],
             'date_of_birth' => ['required', 'date'],
             'gender' => ['required', 'in:laki-laki,perempuan'],
             'agency' => ['nullable', 'string'],
@@ -27,13 +25,17 @@ class UpdateUserController extends Controller
             'address' => ['required', 'string'],
             'province_id' => ['required', 'exists:provinces,id'],
             'city_id' => ['required', 'exists:cities,id'],
-            'phone_number' => ['required', 'numeric'],
             'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
-        $input = $request->all();
-        $input['name'] = Str::title($request->name);
-        $input['password'] = Hash::make($request->phone_number);
+        $input['email'] = $request->email;
+        $input['date_of_birth'] = $request->date_of_birth;
+        $input['gender'] = $request->gender;
+        $input['agency'] = $request->agency;
+        $input['postition'] = $request->postition;
+        $input['address'] = $request->address;
+        $input['province_id'] = $request->province_id;
+        $input['city_id'] = $request->city_id;
         
         if($request->file('photo')) {
             $photo_name = Str::random(30) .'.'. $request->photo->getClientOriginalExtension();
