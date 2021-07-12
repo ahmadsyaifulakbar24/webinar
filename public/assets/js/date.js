@@ -53,7 +53,7 @@ function tanggal2(date) {
 	month['06'] = 'Juni'
 	month['07'] = 'Juli'
 	month['08'] = 'Agustus'
-	month['09'] = 'Septemper'
+	month['09'] = 'September'
 	month['10'] = 'Oktober'
 	month['11'] = 'November'
 	month['12'] = 'Desember'
