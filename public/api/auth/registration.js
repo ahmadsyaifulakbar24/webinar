@@ -13,25 +13,6 @@ $(document).on('click', 'input[name="gender"]', function() {
 $(document).on('change', 'input[type="date"]', function() {
     $(this).removeClass('is-invalid')
 })
-$(document).on('change', '#photo', function() {
-    $(this).removeClass('is-invalid')
-})
-
-$('#choose').click(function() {
-    $('#photo').click()
-})
-
-function readFile() {
-    if (this.files && this.files[0]) {
-        var FR = new FileReader()
-        FR.addEventListener("load", function(e) {
-            document.getElementById("image").src = e.target.result
-            // document.getElementById("b64").innerHTML = e.target.result
-        })
-        FR.readAsDataURL(this.files[0])
-    }
-}
-document.getElementById("photo").addEventListener("change", readFile)
 
 $.ajax({
     url: `${api_url}/param/province`,
@@ -86,7 +67,7 @@ $('form').submit(function(e) {
     fd.append('province_id', $('#province_id').val())
     fd.append('city_id', $('#city_id').val())
     fd.append('phone_number', $('#phone_number').val())
-    fd.append('photo', $('#photo')[0].files[0])
+    photo == null ? fd.append('photo', null) : fd.append('photo', photo, 'photo.jpg')
     $.ajax({
         url: `${api_url}/auth/registration`,
         type: 'POST',

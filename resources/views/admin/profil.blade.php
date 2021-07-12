@@ -2,6 +2,10 @@
 
 @section('title', 'Ubah Profil')
 
+@section('style')
+	<link rel="stylesheet" href="{{asset('assets/vendors/croppie/croppie.css')}}">
+@endsection
+
 @section('content')
     <section class="text-left">
         <div class="container">
@@ -109,9 +113,9 @@
 	                        <div class="small text-secondary pb-2">*pasfoto nantinya digunakan sebagai foto peserta didalam e-sertifikat</div>
 	                        <div class="d-inline-block" id="choose" role="button">
 	                            <img src="{{url('assets/images/blank.png')}}" width="200" class="rounded border" id="image"><br>
-	                            <span class="text-primary" style="padding-left:70px;cursor:pointer">Pilih File</span>
+	                            <span class="text-active" style="padding-left:60px">Ganti Foto</span>
 	                        </div>
-	                        <input type="file" id="photo" class="d-none">
+	                        <input type="file" id="photo" class="none" accept="image/*">
 	                        <div class="invalid-feedback"></div>
 	                    </div>
 	                    <div class="form-group pt-3">
@@ -121,11 +125,35 @@
                 </div>
             </div>
         </div>
+        <div class="modal" id="modal-photo" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div id="photo-body" class="none">
+                        	<div id="photo-preview"></div>
+                        	<div class="text-center">
+		                        <i class="mdi mdi-24px mdi-refresh mdi-flip-h" id="RotateClockwise" role="button"></i>
+		                        <i class="mdi mdi-24px mdi-refresh" id="RotateAntiClockwise" role="button"></i>
+                        	</div>
+                        </div>
+                        <div class="container mt-3">
+                        	<p class="text-danger none pb-3" id="feedback-file"></p>
+                            <div class="row">
+                                <button class="col btn btn-outline mr-2" data-dismiss="modal">Batal</button>
+                                <button class="col btn btn-active ml-2" id="apply">Terapkan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 @endsection
 
 @section('script')
-<script>const id = '{{$id}}'</script>
+	<script>const id = '{{$id}}'</script>
     <script src="{{asset('assets/js/date.js')}}"></script>
+    <script src="{{asset('assets/js/photo.js')}}"></script>
+    <script src="{{asset('assets/vendors/croppie/croppie.min.js')}}"></script>
 	<script src="{{asset('api/admin/profil.js')}}"></script>
 @endsection

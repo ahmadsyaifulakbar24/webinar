@@ -103,8 +103,8 @@ a .card:hover .menu {
 }
 
 
-.text-siwira {
-    color: #70bc2e !important;
+.text-active {
+    color: #f47b2a !important;
 }
 
 .btn-active {
@@ -172,6 +172,14 @@ a .card:hover .menu {
     margin-right: 10px;
     margin-top: -29px;
     display: none;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+	border-color: #f47b2a !important;
+	background-color: #f47b2a !important;
+}
+.cr-slider-wrap {
+	margin-bottom: 0 !important;
 }
 
 @media only screen and (max-width: 991px) {
