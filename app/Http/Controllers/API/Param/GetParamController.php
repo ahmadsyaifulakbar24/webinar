@@ -7,11 +7,15 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\Param\CityResource;
 use App\Http\Resources\Param\ParamResource;
 use App\Http\Resources\Param\ProvinceResource;
+use App\Http\Resources\Param\TtdResource;
 use App\Models\City;
 use App\Models\Param;
 use App\Models\Province;
+use App\Models\Ttd;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+
+use function PHPSTORM_META\map;
 
 class GetParamController extends Controller
 {
@@ -61,6 +65,15 @@ class GetParamController extends Controller
         return $this->param_response('role', 'success get role data');
     }
 
+    public function ttd()
+    {
+        $ttd = Ttd::all();
+        return ResponseFormatter::success(
+            TtdResource::collection($ttd),
+            'success get ttd data'
+        );
+    }
+    
     public function  param_response($category, $message, $parent_id = null)
     {
         $param = Param::query();
