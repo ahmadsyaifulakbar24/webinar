@@ -125,6 +125,14 @@ $('.page').click(function() {
     }
 })
 
+function delay(fn, ms) {
+    let timer = 0
+    return function (...args) {
+        clearTimeout(timer)
+        timer = setTimeout(fn.bind(this, ...args), ms || 0)
+    }
+}
+
 function createQR(code) {
     var qrcode = new QRCode(document.getElementById('qrcode'), {
         text: `${root}/detail/${code}`,

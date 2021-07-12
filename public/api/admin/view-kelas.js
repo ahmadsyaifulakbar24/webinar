@@ -61,7 +61,7 @@ $.ajax({
 })
 
 // Peserta
-function get_data(page) {
+function get_data(page, search) {
 	$('#table-peserta').empty()
 	$.ajax({
 	    url: `${api_url}/registration/fetch`,
@@ -69,7 +69,8 @@ function get_data(page) {
 	    data: {
 	    	limit: 15,
 	    	page: page,
-	        training_id: code
+	        training_id: code,
+	        search: search
 	    },
 	    beforeSend: function(xhr) {
 	        xhr.setRequestHeader("Authorization", "Bearer " + token)
@@ -101,14 +102,25 @@ function get_data(page) {
 		            from++
 	            })
 	            $('#option-delete').hide()
+	            $('#empty').hide()
 	            $('#pagination').show()
 	            pagination(result.links, result.meta, result.meta.path)
 	        } else {
 	            $('#empty').show()
+	            $('#pagination').hide()
 	        }
 	    }
 	})
 }
+
+$('#search').keyup(delay(function(e) {
+    let param = $(this).val()
+    let keyCode = e.originalEvent.keyCode
+    // 0-1 && A-Z || Backspace
+    if (keyCode >= 48 && keyCode <= 90 || keyCode == 8) {
+        param.length != 0 ? get_data(1, param) : get_data()
+    }
+}, 500))
 
 // Delete Materi
 $(document).on('click', '.theory', function() {

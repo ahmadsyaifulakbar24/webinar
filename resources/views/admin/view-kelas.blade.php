@@ -72,7 +72,12 @@
 							</div>
 						</div>
                     	<div class="form-group mt-3">
-                        	<label class="text-secondary">Daftar Peserta</label>
+                    		<div class="d-flex align-items-center justify-content-between">
+	                        	<label class="text-secondary">Daftar Peserta</label>
+	                        	<div class="mb-2">
+		                        	<input class="form-control form-control-sm" id="search" placeholder="Cari Peserta...">
+		                        </div>
+	                        </div>
 							<div class="table-responsive">
 								<table class="table table-sm table-hovered" style="overflow:scroll">
 									<thead>
