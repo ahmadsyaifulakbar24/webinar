@@ -34,6 +34,7 @@ class CreateTrainingController extends Controller
             'date' => ['required', 'date'],
             'time' => ['required', 'date_format:H:i:s'],
             'description' => ['required', 'string'],
+            'ttd_id' => ['required', 'exists:ttds,id'],
             'status' => ['required','in:publish,unpublish,finish'],
         ]);
 

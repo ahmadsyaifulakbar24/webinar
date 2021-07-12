@@ -16,6 +16,7 @@ class Training extends Model
         'date',
         'time',
         'description',
+        'ttd_id',
         'status',
         'code',
     ];
@@ -52,5 +53,10 @@ class Training extends Model
     public function user()
     {
         return $this->belongsToMany(User::class, 'registrations', 'training_id', 'user_id');
+    }
+
+    public function  ttd()
+    {
+        return $this->belongsTo(Ttd::class, 'ttd_id');
     }
 }

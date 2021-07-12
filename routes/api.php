@@ -38,6 +38,7 @@ Route::namespace('API')->group(function () {
             Route::get('unit', 'GetParamController@unit');
             Route::get('sub_unit', 'GetParamController@sub_unit');
             Route::get('role', 'GetParamController@role');
+            Route::get('ttd', 'GetParamController@ttd');
         });
     
         
