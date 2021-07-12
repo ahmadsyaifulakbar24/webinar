@@ -63,6 +63,13 @@
                                 <div class="invalid-feedback"></div>
                             </div>
                             <div class="form-group">
+                                <label for="ttd_id" class="font-weight-bold">Tanda Tangan</label>
+                                <select class="custom-select" id="ttd_id" role="button">
+                                    <option disabled selected>Pilih</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                            <div class="form-group">
                                 <label for="status" class="font-weight-bold">Status</label>
                                 <select class="custom-select" id="status" role="button">
                                     <option disabled selected>Pilih</option>

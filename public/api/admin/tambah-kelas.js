@@ -13,6 +13,21 @@ $.ajax({
     }
 })
 
+$.ajax({
+    url: `${api_url}/param/ttd`,
+    type: 'GET',
+    beforeSend: function(xhr) {
+        xhr.setRequestHeader("Authorization", "Bearer " + token)
+    },
+    success: function(result) {
+        // console.log(result)
+        $.each(result.data, function(index, value) {
+            append = `<option value="${value.id}">${value.name}</option>`
+            $('#ttd_id').append(append)
+        })
+    }
+})
+
 $('#unit_id').change(function() {
     let unit_id = $(this).val()
     $.ajax({
@@ -63,6 +78,7 @@ $('form').submit(function(e) {
     fd.append('date', $('#date').val())
     fd.append('time', $('#time').val() + ':00')
     fd.append('description', description.getData())
+    fd.append('ttd_id', $('#ttd_id').val())
     fd.append('status', $('#status').val())
     $.ajax({
         url: `${api_url}/training/create`,
@@ -107,6 +123,10 @@ $('form').submit(function(e) {
             if (err.description) {
                 $('#description').addClass('is-invalid')
                 $('#description').siblings('.invalid-feedback').html('Masukkan keterangan')
+            }
+            if (err.ttd_id) {
+                $('#ttd_id').addClass('is-invalid')
+                $('#ttd_id').siblings('.invalid-feedback').html('Pilih tanda tangan')
             }
             if (err.status) {
                 $('#status').addClass('is-invalid')
