@@ -30,7 +30,7 @@ class TtdSeeder extends Seeder
             'id' => 3,
             'name' => 'Budi Mustopo',
             'unit' => 'Kepala Biro Komunikasi dan Teknologi Informasi',
-            'ttd_path' => 'assets/images/ttd/arif_rahman.png',
+            'ttd_path' => 'assets/images/ttd/budi_mustopo.png',
         ]);
     }
 }
