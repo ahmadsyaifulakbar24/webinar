@@ -29,6 +29,7 @@ class UpdateUserController extends Controller
             'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
+        $input['name'] = $request->name;
         $input['email'] = $request->email;
         $input['date_of_birth'] = $request->date_of_birth;
         $input['gender'] = $request->gender;
