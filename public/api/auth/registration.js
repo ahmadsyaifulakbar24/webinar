@@ -75,7 +75,7 @@ $('form').submit(function(e) {
         processData: false,
         contentType: false,
         success: function(result) {
-        	location.href = `${root}?registration=success`
+            location.href = `${root}?registration=success`
         },
         error: function(xhr) {
             $('#submit').attr('disabled', false)
@@ -90,15 +90,14 @@ $('form').submit(function(e) {
                 $('#email').siblings('.invalid-feedback').html('Masukkan email')
             }
             if (err.nik) {
-	            if (err.nik == "The nik has already been taken.") {
-	                $('#nik').addClass('is-invalid')
-	                $('#nik').siblings('.invalid-feedback').html('NIK telah digunakan')
-	            }
-	            else {
-	                $('#nik').addClass('is-invalid')
-	                $('#nik').siblings('.invalid-feedback').html('Masukkan NIK')
-	            }
-	        }
+                if (err.nik == "The nik has already been taken.") {
+                    $('#nik').addClass('is-invalid')
+                    $('#nik').siblings('.invalid-feedback').html('NIK telah digunakan')
+                } else {
+                    $('#nik').addClass('is-invalid')
+                    $('#nik').siblings('.invalid-feedback').html('Masukkan NIK')
+                }
+            }
             if (err.date_of_birth) {
                 $('#date_of_birth').addClass('is-invalid')
                 $('#date_of_birth').siblings('.invalid-feedback').html('Masukkan tanggal lahir')

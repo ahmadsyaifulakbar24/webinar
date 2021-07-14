@@ -118,7 +118,7 @@
                     </div>
                     <div class="form-group">
                         <label for="phone_number" class="font-weight-bold">Nomor Telepon*</label>
-                        <input type="tel" class="form-control" id="phone_number">
+                        <input type="tel" class="form-control" id="phone_number" maxlength="15">
                         <div class="invalid-feedback"></div>
                     </div>
                 	<div class="form-group">
