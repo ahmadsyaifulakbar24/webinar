@@ -3,13 +3,13 @@ let photo = null
 $(document).ready(function() {
     $croppie = $('#photo-preview').croppie({
         viewport: {
-            width: 250,
-            height: 250,
+            width: 255,
+            height: 330,
             type: 'square'
         },
         boundary: {
-            width: 300,
-            height: 300
+            width: 275,
+            height: 350
         },
         enableOrientation: true
     })
