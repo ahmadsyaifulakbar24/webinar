@@ -30,11 +30,11 @@ class CreateRegistrationController extends Controller
         ]);
 
         $training = Training::where('code', $request->training_code)->first();
-
+        $max_qrcode = Registration::max('qrcode');
         $input['training_id'] = $training->id;
         $input['user_id'] = $request->user()->id;
         $input['role_id'] = $request->role_id;
-        $input['qrcode'] = rand(100000, 999999);
+        $input['qrcode'] = $max_qrcode + 1;
 
         $cek_registration = Registration::where([ ['user_id', $input['user_id']], ['training_id', $input['training_id']] ])->count();
         if($cek_registration > 0) {
