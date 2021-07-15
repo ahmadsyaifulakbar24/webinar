@@ -17,6 +17,7 @@ class UpdateUserController extends Controller
     public function __invoke(Request $request, User $user)
     {
         $this->validate($request, [
+            'name' => ['required', 'string'],
             'email' => ['required', 'email'],
             'date_of_birth' => ['required', 'date'],
             'gender' => ['required', 'in:laki-laki,perempuan'],
@@ -28,6 +29,7 @@ class UpdateUserController extends Controller
             'photo' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
         ]);
 
+        $input['name'] = $request->name;
         $input['email'] = $request->email;
         $input['date_of_birth'] = $request->date_of_birth;
         $input['gender'] = $request->gender;
