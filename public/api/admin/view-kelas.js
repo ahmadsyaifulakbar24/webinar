@@ -93,10 +93,11 @@ function get_data(page, search) {
 						<td class="text-truncate text-capitalize">${value.user.name}</td>
 						<td class="text-truncate">${value.user.nik}</td>
 						<td class="text-truncate">${value.user.phone_number}</td>
+						${download}
 						<td class="text-truncate">
 							<a href="${root}/admin/profil/${value.user.id}" class="btn btn-sm btn-outline">Ubah</a>
+							<div class="btn btn-sm btn-outline delete-user" data-id="${value.id}" data-name="${value.user.name}">Hapus</div>
 						</td>
-						${download}
 					</tr>`
 		            $('#table-peserta').append(append)
 		            from++
@@ -134,6 +135,28 @@ $(document).on('click', '#delete-theory', function() {
     let id = $(this).attr('data-id')
     $.ajax({
         url: `${api_url}/training/delete_theory/${id}`,
+        type: 'DELETE',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + token)
+        },
+        success: function(result) {
+            location.href = `${root}/admin/kelas/${code}`
+        }
+    })
+})
+
+// Delete Peserta
+$(document).on('click', '.delete-user', function() {
+    let id = $(this).attr('data-id')
+    let name = $(this).attr('data-name')
+    $('#delete-user').attr('data-id', id)
+    $('#modal-delete-user .name').html(name)
+    $('#modal-delete-user').modal('show')
+})
+$(document).on('click', '#delete-user', function() {
+    let id = $(this).attr('data-id')
+    $.ajax({
+        url: `${api_url}/registration/delete/${id}`,
         type: 'DELETE',
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Authorization", "Bearer " + token)

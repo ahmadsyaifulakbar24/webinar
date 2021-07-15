@@ -196,6 +196,19 @@
             		</div>
             	</div>
             </div>
+            <div class="modal" id="modal-delete-user" tabindex="-1" role="dialog" aria-labelledby="deleteTitle" aria-hidden="true">
+            	<div class="modal-dialog modal-dialog-centered" role="document">
+            		<div class="modal-content text-center p-3">
+            			<p class="py-5">Anda yakin ingin hapus <span class="name font-weight-bold"></span> dari kelas <span class="font-weight-bold topic"></span>?</p>
+            			<div class="container">
+                			<div class="row">
+	                			<button class="col btn btn-outline mr-2" data-dismiss="modal">Batal</button>
+	                			<button class="col btn btn-active ml-2" id="delete-user">Hapus</button>
+	                		</div>
+	                	</div>
+            		</div>
+            	</div>
+            </div>
         </div>
     </section>
 @endsection
