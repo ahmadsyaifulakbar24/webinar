@@ -29,7 +29,8 @@ class TrainingResource extends JsonResource
             'status' => $this->status,
             'theory' => $this->theory,
             'theory' => TheoryResource::collection($this->theory),
-            'crated_at' => $this->crated_at,
+            'harkopnas' => ($this->created_at < '2021-07-19') ? 1 : 0,
+            'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
     }
