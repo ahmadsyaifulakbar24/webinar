@@ -12,7 +12,7 @@ $.ajax({
 })
 
 function get_city(province_id, city_id) {
-	$('#city_id').html('')
+    $('#city_id').html('')
     $.ajax({
         url: `${api_url}/param/city`,
         type: "GET",
@@ -27,8 +27,8 @@ function get_city(province_id, city_id) {
             })
             $('#city_id').append(append)
             if (city_id != undefined) {
-            	$('#city_id').val(city_id)
-            	$('#submit').attr('disabled', false)
+                $('#city_id').val(city_id)
+                $('#submit').attr('disabled', false)
             }
         }
     })
@@ -38,39 +38,37 @@ $('#province_id').change(function() {
     get_city($(this).val())
 })
 
-let name, nik, phone_number
+let name
 function get_data() {
-	$.ajax({
-	    url: `${api_url}/user/fetch/${user_id}`,
-	    type: 'GET',
-	    beforeSend: function(xhr) {
-	        xhr.setRequestHeader("Authorization", "Bearer " + token)
-	    },
-	    success: function(result) {
-	        // console.log(result)
-	        let value = result.data
-	        $('#name').val(value.name)
-	        name = value.name
-	        $('#email').val(value.email)
-	        $('#nik').val(value.nik)
-	        nik = value.nik
-	        $('#date').val(value.date_of_birth.substr(8,3))
-	        $('#month').val(value.date_of_birth.substr(0,7))
-	        if (value.gender == "laki-laki") {
-	            $('#male').attr('checked', true)
-	        } else {
-	            $('#female').attr('checked', true)
-	        }
-	        $('#agency').val(value.agency)
-	        $('#position').val(value.position)
-	        $('#address').val(value.address)
-	        $('#province_id').val(value.province.id)
-			get_city(value.province.id, value.city.id)	        
-	        $('#phone_number').val(value.phone_number)
-	        phone_number = value.phone_number
-	        $('#image').attr('src', value.photo_url)
-	    }
-	})
+    $.ajax({
+        url: `${api_url}/user/fetch/${user_id}`,
+        type: 'GET',
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + token)
+        },
+        success: function(result) {
+            // console.log(result)
+            let value = result.data
+            $('#name').val(value.name)
+            name = value.name
+            $('#email').val(value.email)
+            $('#nik').val(value.nik)
+            $('#date').val(value.date_of_birth.substr(8, 3))
+            $('#month').val(value.date_of_birth.substr(0, 7))
+            if (value.gender == "laki-laki") {
+                $('#male').attr('checked', true)
+            } else {
+                $('#female').attr('checked', true)
+            }
+            $('#agency').val(value.agency)
+            $('#position').val(value.position)
+            $('#address').val(value.address)
+            $('#province_id').val(value.province.id)
+            get_city(value.province.id, value.city.id)
+            $('#phone_number').val(value.phone_number)
+            $('#image').attr('src', value.photo_url)
+        }
+    })
 }
 
 $('form').submit(function(e) {
@@ -79,12 +77,8 @@ $('form').submit(function(e) {
     $('#submit').attr('disabled', true)
     $('.is-invalid').removeClass('is-invalid')
     let fd = new FormData
-    // fd.append('name', $('#name').val())
     fd.append('name', name)
     fd.append('email', $('#email').val())
-    // fd.append('nik', $('#nik').val())
-    fd.append('nik', nik)
-    // fd.append('date_of_birth', $('#date_of_birth').val())
     fd.append('date_of_birth', `${$('#month').val()}-${$('#date').val()}`)
     fd.append('gender', $('input[type=radio][name=gender]:checked').val())
     fd.append('agency', $('#agency').val())
@@ -92,8 +86,6 @@ $('form').submit(function(e) {
     fd.append('address', $('#address').val())
     fd.append('province_id', $('#province_id').val())
     fd.append('city_id', $('#city_id').val())
-    // fd.append('phone_number', $('#phone_number').val())
-    fd.append('phone_number', phone_number)
     if (photo != null) fd.append('photo', photo, 'photo.jpg')
     $.ajax({
         url: `${api_url}/user/update/${user_id}`,
@@ -101,16 +93,16 @@ $('form').submit(function(e) {
         data: fd,
         processData: false,
         contentType: false,
-	    beforeSend: function(xhr) {
-	        xhr.setRequestHeader("Authorization", "Bearer " + token)
-	    },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Authorization", "Bearer " + token)
+        },
         success: function(result) {
-        	$('#success').show()
-        	$('html, body').scrollTop(0)
-		    $('#submit').attr('disabled', false)
-		    setTimeout(function() {
-	        	$('#success').hide()
-		    }, 2000)
+            $('#success').show()
+            $('html, body').scrollTop(0)
+            $('#submit').attr('disabled', false)
+            setTimeout(function() {
+                $('#success').hide()
+            }, 2000)
         },
         error: function(xhr) {
             $('#submit').attr('disabled', false)
@@ -125,15 +117,14 @@ $('form').submit(function(e) {
                 $('#email').siblings('.invalid-feedback').html('Masukkan email')
             }
             if (err.nik) {
-	            if (err.nik == "The nik has already been taken.") {
-	                $('#nik').addClass('is-invalid')
-	                $('#nik').siblings('.invalid-feedback').html('NIK telah digunakan')
-	            }
-	            else {
-	                $('#nik').addClass('is-invalid')
-	                $('#nik').siblings('.invalid-feedback').html('Masukkan NIK')
-	            }
-	        }
+                if (err.nik == "The nik has already been taken.") {
+                    $('#nik').addClass('is-invalid')
+                    $('#nik').siblings('.invalid-feedback').html('NIK telah digunakan')
+                } else {
+                    $('#nik').addClass('is-invalid')
+                    $('#nik').siblings('.invalid-feedback').html('Masukkan NIK')
+                }
+            }
             if (err.date_of_birth) {
                 $('#date_of_birth').addClass('is-invalid')
                 $('#date_of_birth').siblings('.invalid-feedback').html('Masukkan tanggal lahir')
@@ -165,4 +156,3 @@ $('form').submit(function(e) {
         }
     })
 })
-

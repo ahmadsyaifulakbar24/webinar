@@ -34,7 +34,7 @@
 	                    </div>
 	                    <div class="form-group">
 	                        <label for="nik" class="font-weight-bold">NIK (Nomor Induk Kependudukan)*</label>
-	                        <input type="tel" class="form-control" id="nik" minlength="16" maxlength="16">
+	                        <input type="tel" class="form-control" id="nik" minlength="16" maxlength="16" disabled>
 	                        <div class="invalid-feedback"></div>
 	                    </div>
 	                    <label for="date_of_birth" class="font-weight-bold d-block">Tanggal Lahir*</label>
@@ -105,7 +105,7 @@
 	                    </div>
 	                    <div class="form-group">
 	                        <label for="phone_number" class="font-weight-bold">Nomor Telepon*</label>
-	                        <input type="tel" class="form-control" id="phone_number">
+	                        <input type="tel" class="form-control" id="phone_number" disabled>
 	                        <div class="invalid-feedback"></div>
 	                    </div>
 	                	<div class="form-group">
