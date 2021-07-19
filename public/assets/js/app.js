@@ -141,9 +141,6 @@ function filterPhoneNumber(textbox, inputFilter) {
         })
     })
 }
-filterPhoneNumber(document.getElementById("phone_number"), function(value) {
-    return /^\d*\.?\d*$/.test(value) // Allow digits and '.' only, using a RegExp
-})
 
 function delay(fn, ms) {
     let timer = 0

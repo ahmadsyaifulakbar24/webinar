@@ -13,6 +13,9 @@ $(document).on('click', 'input[name="gender"]', function() {
 $(document).on('change', 'input[type="date"]', function() {
     $(this).removeClass('is-invalid')
 })
+filterPhoneNumber(document.getElementById("phone_number"), function(value) {
+    return /^\d*\.?\d*$/.test(value) // Allow digits and '.' only, using a RegExp
+})
 
 $.ajax({
     url: `${api_url}/param/province`,
@@ -58,7 +61,6 @@ $('form').submit(function(e) {
     fd.append('name', $('#name').val())
     fd.append('email', $('#email').val())
     fd.append('nik', $('#nik').val())
-    // fd.append('date_of_birth', $('#date_of_birth').val())
     fd.append('date_of_birth', `${$('#month').val()}-${$('#date').val()}`)
     fd.append('gender', $('input[type=radio][name=gender]:checked').val())
     fd.append('agency', $('#agency').val())
