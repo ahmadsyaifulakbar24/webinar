@@ -82,7 +82,13 @@
 		        let value = result.data
 		        $('#topic').html(value.topic)
 		        $('#date').html(tanggal2(value.date))
-				let finish_date = (value.finish_date != null) ? ' s/d ' + tanggal2(value.finish_date) : ''
+
+				let finish_date
+				if(value.finish_date != null) {
+					finish_date = ' s/d ' + tanggal2(value.finish_date)
+				} else {
+					finish_date = tanggal2(value.date)
+				}
 		        $('#finish_date').html(finish_date)
 		        $('#time').html(value.time.substr(0, 5) + ' WIB')
 		        $('#code').html(value.code)
