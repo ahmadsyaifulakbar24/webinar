@@ -85,7 +85,7 @@
 
 				let finish_date
 				if(value.finish_date != null) {
-					finish_date = ' s/d ' + tanggal2(value.finish_date)
+					finish_date = tanggal2(value.finish_date)
 				} else {
 					finish_date = tanggal2(value.date)
 				}
