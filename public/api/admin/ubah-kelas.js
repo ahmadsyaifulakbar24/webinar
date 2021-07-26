@@ -60,6 +60,16 @@ $('#choose').click(function() {
     $('#poster').click()
 })
 
+$('#finish_date_option').change(function() {
+    if(this.checked) {
+        $('#finish-date-form').removeClass('d-none');
+        $(this).attr('value', '1');
+    } else {
+        $('#finish-date-form').addClass('d-none');
+        $(this).attr('value', '0');
+    }
+})
+
 function readFile() {
     if (this.files && this.files[0]) {
         var FR = new FileReader()
@@ -86,6 +96,12 @@ $.ajax({
         sub_unit(value.unit.id, value.sub_unit.id)
         $('#date').val(value.date)
         $('#time').val(value.time.substr(0, 5))
+        $('#finish_date').val(value.finish_date)
+        if(value.finish_date != null) {
+            $('#finish_date_option').prop('checked', true);
+            $('#finish-date-form').removeClass('d-none');
+            $('#finish_date_option').attr('value', '1');
+        }
         description.setData(value.description)
         $('#ttd_id').val(value.ttd.id)
         $('#status').val(value.status)
@@ -103,6 +119,8 @@ $('form').submit(function(e) {
     fd.append('sub_unit_id', $('#sub_unit_id').val())
     fd.append('date', $('#date').val())
     fd.append('time', $('#time').val() + ':00')
+    fd.append('finish_date_option', $('#finish_date_option').val())
+    fd.append('finish_date', $('#finish_date').val())
     fd.append('description', description.getData())
     fd.append('ttd_id', $('#ttd_id').val())
     fd.append('status', $('#status').val())
@@ -145,6 +163,10 @@ $('form').submit(function(e) {
             if (err.time) {
                 $('#time').addClass('is-invalid')
                 $('#time').siblings('.invalid-feedback').html('Masukkan jam')
+            }
+            if (err.finish_date) {
+                $('#finish_date').addClass('is-invalid')
+                $('#finish_date').siblings('.invalid-feedback').html('Pilih tanggal selesai')
             }
             if (err.description) {
                 $('#description').addClass('is-invalid')

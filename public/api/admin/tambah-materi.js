@@ -10,7 +10,8 @@ $.ajax({
         $('#poster').attr('src', value.poster_url)
         $('#code').html(value.code)
         $('.topic').prepend(value.topic)
-        $('#date').html(tanggal(value.date))
+        let finish_date = (value.finish_date != null) ? ' s/d ' + tanggal(value.finish_date) : ''
+        $('#date').html(tanggal(value.date) + finish_date)
         $('#time').html(value.time.substr(0, 5) + ' WIB')
         $('#description').html(value.description)
     }
@@ -23,7 +24,6 @@ $('form').submit(function(e) {
     let fd = new FormData
     fd.append('training_id', code)
     fd.append('theory', $('#theory').val())
-    fd.append('jpl', $('#jpl').val())
     $.ajax({
         url: `${api_url}/training/create_theory`,
         type: 'POST',
@@ -43,10 +43,6 @@ $('form').submit(function(e) {
             if (err.theory) {
                 $('#theory').addClass('is-invalid')
                 $('#theory').siblings('.invalid-feedback').html('Masukkan materi pelatihan')
-            }
-            if (err.jpl) {
-                $('#jpl').addClass('is-invalid')
-                $('#jpl').siblings('.invalid-feedback').html('Masukkan JPL')
             }
         }
     })

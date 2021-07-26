@@ -30,6 +30,11 @@
 			<td id="date"></td>
 		</tr>
 		<tr>
+			<th>Tanggal Selesai</th>
+			<th>:</th>
+			<td id="finish_date"></td>
+		</tr>
+		<tr>
 			<th>Jam</th>
 			<th>:</th>
 			<td id="time"></td>
@@ -77,6 +82,8 @@
 		        let value = result.data
 		        $('#topic').html(value.topic)
 		        $('#date').html(tanggal2(value.date))
+				let finish_date = (value.finish_date != null) ? ' s/d ' + tanggal2(value.finish_date) : ''
+		        $('#finish_date').html(finish_date)
 		        $('#time').html(value.time.substr(0, 5) + ' WIB')
 		        $('#code').html(value.code)
 		        $('#total').html(value.registration.length + ' Orang')

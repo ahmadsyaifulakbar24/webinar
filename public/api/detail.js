@@ -12,7 +12,8 @@ $.ajax({
         $('#name').html(value.user.name)
         $('#date_of_birth').html(tanggal2(value.user.date_of_birth))
         $('#topic').html(value.training.topic)
-        $('#date').html(tanggal2(value.training.date))
+        let finish_date = (value.finish_date != null) ? ' s/d ' + tanggal2(value.finish_date) : ''
+        $('#date').html(tanggal2(value.training.date) + finish_date)
         $('#time').html(value.training.time.substr(0, 5) + ' WIB')
         createQR(value.qrcode)
         $('#card').show()

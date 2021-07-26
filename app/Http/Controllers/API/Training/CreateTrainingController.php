@@ -32,6 +32,11 @@ class CreateTrainingController extends Controller
             'poster' => ['required', 'image', 'mimes:jpeg,png,jpg,gif,svg'],
             'topic' => ['required', 'string'],
             'date' => ['required', 'date'],
+            'finish_date_option' => ['required', 'in:0,1'],
+            'finish_date' => [
+                Rule::requiredIf($request->finish_date_option == 1),
+                'date'
+            ],
             'time' => ['required', 'date_format:H:i:s'],
             'description' => ['required', 'string'],
             'ttd_id' => ['required', 'exists:ttds,id'],
@@ -57,14 +62,10 @@ class CreateTrainingController extends Controller
         $this->validate($request, [
             'training_id' => ['required', 'exists:trainings,id'],
             'theory' => ['required', 'string'],
-            'jpl' => ['required', 'numeric']
         ]);
 
         $training = Training::find($request->training_id);
-        $theory = $training->theory()->create([
-            'theory' => $request->theory,
-            'jpl' => $request->jpl,
-        ]);
+        $theory = $training->theory()->create([ 'theory' => $request->theory ]);
 
         return ResponseFormatter::success(
             new TheoryResource($theory),

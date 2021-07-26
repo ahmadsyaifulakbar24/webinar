@@ -36,12 +36,18 @@ class UpdateTrainingController extends Controller
             'topic' => ['required', 'string'],
             'date' => ['required', 'date'],
             'time' => ['required', 'date_format:H:i:s'],
+            'finish_date_option' => ['required', 'in:0,1'],
+            'finish_date' => [
+                Rule::requiredIf($request->finish_date_option == 1),
+                'date'
+            ],
             'description' => ['required', 'string'],
             'ttd_id' => ['required', 'exists:ttds,id'],
             'status' => ['required','in:publish,unpublish,finish'],
         ]);
 
         $input = $request->all();
+        if($request->finish_date_option == 0) { $input['finish_date'] = null; }
         if($request->file('poster')) {
             $photo_name = Str::random(30) .'.'. $request->poster->getClientOriginalExtension();
             $input['poster_path'] = FileHelpers::upload_image_resize($request->poster, 'training_poster', $photo_name);
@@ -58,8 +64,7 @@ class UpdateTrainingController extends Controller
     public function update_theory(Request $request, Theory $theory)
     {
         $this->validate($request, [
-            'theory' => ['required', 'string'],
-            'jpl' => ['required', 'numeric']
+            'theory' => ['required', 'string']
         ]);
 
         $theory->update($request->all());

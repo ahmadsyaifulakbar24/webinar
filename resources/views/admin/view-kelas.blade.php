@@ -60,7 +60,6 @@
 										<tr>
 											<th scope="col" class="text-center">No.</th>
 											<th scope="col">Materi</th>
-											<th scope="col">JPL</th>
 											<th scope="col" colspan="2">Action</th>
 										</tr>
 									</thead>

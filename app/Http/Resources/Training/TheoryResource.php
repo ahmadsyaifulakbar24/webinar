@@ -17,7 +17,6 @@ class TheoryResource extends JsonResource
         return [
             'id' => $this->id,
             'theory' => $this->theory,
-            'jpl' => $this->jpl,
         ];
     }
 }

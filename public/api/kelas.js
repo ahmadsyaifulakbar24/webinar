@@ -77,7 +77,8 @@ $('#search').click(function(e) {
             $('#search').hide()
             $('#submit').show()
             $('#topic').html(value.topic)
-            $('#date').html(tanggal(value.date))
+            let finish_date = (value.finish_date != null) ? ' s/d ' + tanggal(value.finish_date) : ''
+            $('#date').html(tanggal(value.date) + finish_date)
             $('#time').html(value.time.substr(0, 5) + ' WIB')
         },
         error: function(xhr) {

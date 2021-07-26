@@ -10,7 +10,6 @@ class Theory extends Model
     protected $fillable = [
         'training_id',
         'theory',
-        'jpl'
     ];
 
     public $timestamps = false;

@@ -49,11 +49,6 @@
                                 <textarea class="form-control" id="theory" rows="4"></textarea>
                                 <div class="invalid-feedback"></div>
                             </div>
-                            <div class="form-group">
-                                <label for="jpl" class="font-weight-bold">JPL</label>
-                                <input type="tel" class="form-control" id="jpl">
-                                <div class="invalid-feedback"></div>
-                            </div>
 		                    <div class="form-group pt-3">
 		                        <button class="btn btn-active btn-block" id="submit">Tambah Materi</button>
 		                    </div>

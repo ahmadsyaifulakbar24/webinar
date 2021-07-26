@@ -102,46 +102,80 @@
 		<i class="mdi mdi-48px mdi-check" id="check" style="display: none"></i>
 	</div>
 	<div class="d-none" id="pdf">
-	    <img class="img-background" src="{{ asset('assets/images/back_sertifikat.png') }}" style="width:97%">
-	    <div class="isi-content">
-	    	<!-- <img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -190px; margin-left: -50px;"> -->
-	    	<img id="photo_url" style="width: 80px; margin-top: 100px;" class="text-center">
-	        <div class="text-center col-lg-9 d-block mx-auto" style="margin-top:10px;">
-	            <div class="tahoma">Diberikan Kepada :</div> 
-	            <div class="vivaldi" id="name" style="margin-top:-7px;"></div>
-	            <div class="tahoma">Sebagai <u id="role"></u></div> 
-	            <div class="tahoma">Kelas Online/ Webinar :</div>
-	            <div class="tahoma font-pelatihan upercase" id="topic"></div>
-	            <div class="tahoma">Pada Tanggal <span id="date"></span>, Jam <span id="time"></span></div>
-	            <div class="tahoma">Diselenggarakan oleh :</div>
-	            <div class="tahoma">Kementerian Koperasi dan Usaha Kecil dan Menengah Republik Indonesia</div>
-	        </div>
-	        <br>
-	        <div class="float-left">
-	            <div class="code text-center">
-	                <div class="qrcode" id="qrcode">{!! QrCode::size(70)->generate(Request::root().'/detail/'.$qrcode) !!}</div>
-	                <div class="mt-2">
-	                    <p style="white-space: pre-line; line-height: 0.8;">
-	                        <small style="font-size:10px">Pindai untuk memeriksa</small>
-	                        <small style="font-size:10px">keaslian dokumen</small>
-	                        <!-- <small style="font-size:12px">http://siwira.id/kelas-online</small> -->
-	                    </p>
-	                </div>
-	            </div>
-	        </div>
-	        <div class="float-right ttd-margin" style="margin-right: 170px;margin-top: 20px;">
-	            <div class="col-lg-12 text-center ttd">
-	                <div class="tahoma">Jakarta, <span id="ttd_tanggal"></span></div>
-	                <div class="tahoma" id="ttd_unit"></div>
-	                <div class="tahoma harkopnas">Selaku Ketua Panitia Peringatan Hari Koperasi ke 74</div>
-	                <img class="img-fluid harkopnas" src="{{ asset('assets/images/harkop.png') }}" width="90" style="position:absolute; right:350px; top:10px;">
-	                <img class="img-fluid cap" src="{{ asset('assets/images/cap.png') }}" width="90" style="position:absolute; right:175px; top:30px;z-index: 99;">
-	                <img class="img-fluid ttd_path" width="100" style="position:absolute; right:120px; top:30px;" id="ttd_path">
-	                <br><br><br>
-	                <div class="tahoma" id="ttd_name"></div>
-	            </div>
-	        </div>
-	    </div>
+		<img class="img-background" src="{{ asset('assets/images/back_sertifikat.png') }}" style="width:97%">
+		<div class="isi-content">
+			<!-- <img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -190px; margin-left: -50px;"> -->
+			<img id="photo_url" style="width: 80px; margin-top: 100px;" class="text-center">
+			<div class="text-center col-lg-9 d-block mx-auto" style="margin-top:10px;">
+				<div class="tahoma">Diberikan Kepada :</div> 
+				<div class="vivaldi" id="name" style="margin-top:-7px;"></div>
+				<div class="tahoma">Sebagai <u id="role"></u></div> 
+				<div class="tahoma">Kelas Online/ Webinar :</div>
+				<div class="tahoma font-pelatihan upercase" id="topic"></div>
+				<div class="tahoma">Pada Tanggal <span id="date"></span><span id="time"></span></div>
+				<div class="tahoma">Diselenggarakan oleh :</div>
+				<div class="tahoma">Kementerian Koperasi dan Usaha Kecil dan Menengah Republik Indonesia</div>
+			</div>
+			<br>
+			<div class="float-left">
+				<div class="code text-center">
+					<div class="qrcode" id="qrcode">{!! QrCode::size(70)->generate(Request::root().'/detail/'.$qrcode) !!}</div>
+					<div class="mt-2">
+						<p style="white-space: pre-line; line-height: 0.8;">
+							<small style="font-size:10px">Pindai untuk memeriksa</small>
+							<small style="font-size:10px">keaslian dokumen</small>
+							<!-- <small style="font-size:12px">http://siwira.id/kelas-online</small> -->
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="float-right ttd-margin" style="margin-right: 170px;margin-top: 20px;">
+				<div class="col-lg-12 text-center ttd">
+					<div class="tahoma">Jakarta, <span id="ttd_tanggal"></span></div>
+					<div class="tahoma" id="ttd_unit"></div>
+					<div class="tahoma harkopnas">Selaku Ketua Panitia Peringatan Hari Koperasi ke 74</div>
+					<img class="img-fluid harkopnas" src="{{ asset('assets/images/harkop.png') }}" width="90" style="position:absolute; right:350px; top:10px;">
+					<img class="img-fluid cap" src="{{ asset('assets/images/cap.png') }}" width="90" style="position:absolute; right:175px; top:30px;z-index: 99;">
+					<img class="img-fluid ttd_path" width="100" style="position:absolute; right:120px; top:30px;" id="ttd_path">
+					<br><br><br>
+					<div class="tahoma" id="ttd_name"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div style="margin-top : 75px">
+			<div class="container">
+				<div class="row justify-content-md-center align-items-center">
+					<div class="col-md-10">
+						<div class="tahoma" style="font-size: 25px;">Kelas Online/ Webinar :</div>
+						<div id="topic2" style="font-size: 20px;"></div>
+						<table class="table table-bordered mt-4">
+							<thead style="font-size: 25px;">
+								<tr>
+									<th style="width: 10%">No</th>
+									<th>Materi</th>
+								</tr>
+							</thead>
+							<tbody id="materi" style="font-size: 20px;"> </tbody>
+						</table>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-2">
+						<div class="text-center">
+							<div id="qrcode" style="margin-top: 30px">{!! QrCode::size(70)->generate(Request::root().'/detail/'.$qrcode) !!}</div>
+							<div class="mt-2">
+								<p style="white-space: pre-line; line-height: 0.8;">
+									<small style="font-size:10px">Pindai untuk memeriksa</small>
+									<small style="font-size:10px">keaslian dokumen</small>
+									<!-- <small style="font-size:12px">http://siwira.id/kelas-online</small> -->
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
     @include('layouts.partials.script')
 	<script>const code = '{{$code}}'</script>
@@ -159,9 +193,14 @@
 		    success: function(result) {
 		        // console.log(result)
 		        let value = result.data
+				let finish_date
 		        $('#topic').html(value.training.topic)
-		        $('#date').html(tanggal2(value.training.date))
-		        $('#time').html(value.training.time.substr(0, 5) + ' WIB')
+				if(value.training.finish_date != null) {
+					finish_date = ' s/d ' + tanggal2(value.training.finish_date)
+					$('#time').addClass('d-none');
+				} else { finish_date = '' }
+		        $('#date').html(tanggal2(value.training.date) + finish_date)
+		        $('#time').html(', Jam ' + value.training.time.substr(0, 5) + ' WIB')
 		        
 		        $('#name').html(value.user.name)
 		        $('#photo_url').attr('src', value.user.photo_url)
@@ -191,6 +230,17 @@
 		        if (d.toString().length < 2) d = '0' + d
 		        $('#ttd_tanggal').html(tanggal2(`${y}-${m}-${d}`))
 
+				var no = 1
+				$('#topic2').html('"' + value.training.topic + '"')
+				$.each(value.training.theory, function(index, value) {
+					appendMateri = `
+						<tr>
+							<td>`+ no++ +`</td>
+							<td class="text-left">`+ value.theory +`</td>
+						</tr>
+					`
+					$('#materi').append(appendMateri)
+				})
 		        // new QRCode(document.getElementById('qrcode'), {
 			    //     text: `${root}/detail/${value.qrcode}`,
 			    //     width: 70,

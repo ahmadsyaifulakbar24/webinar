@@ -10,7 +10,8 @@ $.ajax({
         $('#poster').attr('src', value.training.poster_url)
         $('#code').html(value.training.code)
         $('.topic').prepend(value.training.topic)
-        $('#date').html(tanggal(value.training.date))
+        let finish_date = (value.training.finish_date != null) ? ' s/d ' + tanggal(value.training.finish_date) : ''
+        $('#date').html(tanggal(value.training.date) + finish_date)
         $('#time').html(value.training.time.substr(0, 5) + ' WIB')
         $('#description').html(value.training.description)
         if (value.training.status == 'finish') {
@@ -42,7 +43,6 @@ function get_theory(training_id) {
 	                appendMateri = `<tr class="position-relative">
 						<td class="text-truncate text-center">${index + 1}.</td>
 						<td class="text-truncate">${value.theory}</td>
-						<td class="text-truncate">${value.jpl}</td>
 					</tr>`
 	                $('#table-materi').append(appendMateri)
 	            })

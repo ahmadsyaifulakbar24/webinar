@@ -17,6 +17,7 @@ class Training extends Model
         'topic',
         'date',
         'time',
+        'finish_date',
         'description',
         'ttd_id',
         'status',

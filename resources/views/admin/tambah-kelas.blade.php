@@ -56,6 +56,17 @@
                                     <input type="time" class="form-control" id="time">
                                     <div class="invalid-feedback"></div>
                                 </div>
+                                <div class="col-md-12 form-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="finish_date_option" value="0">
+                                        <label class="form-check-label" for="finish_date_option"> Pelatihan yang dilaksanakan lebih dari 1 hari </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 form-group d-none" id="finish-date-form">
+                                    <label for="date" class="font-weight-bold">Tanggal Selesai</label>
+                                    <input type="date" class="form-control" id="finish_date">
+                                    <div class="invalid-feedback"></div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="description" class="font-weight-bold">Keterangan</label>

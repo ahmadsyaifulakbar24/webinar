@@ -12,7 +12,8 @@ $.ajax({
         $('#poster').attr('src', value.poster_url)
         $('#code').html(value.code)
         $('.topic').prepend(value.topic)
-        $('#date').html(tanggal(value.date))
+        let finish_date = (value.finish_date != null) ? ' s/d ' + tanggal(value.finish_date) : ''
+        $('#date').html(tanggal(value.date) + finish_date)
         $('#time').html(value.time.substr(0, 5) + ' WIB')
         $('#description').html(value.description)
         $('#ubah').attr('href', `${root}/admin/ubah/kelas/${code}`)
@@ -46,7 +47,6 @@ $.ajax({
                 appendMateri = `<tr class="position-relative">
 					<td class="text-truncate text-center">${index + 1}.</td>
 					<td class="text-truncate">${value.theory}</td>
-					<td class="text-truncate">${value.jpl}</td>
 					<td class="text-truncate">
 						<a href="${root}/admin/ubah/materi/${code}/${value.id}#materi" class="btn btn-sm btn-outline">Ubah</a>
 						<div class="btn btn-sm btn-outline theory" data-id="${value.id}" data-name="${value.theory}">Hapus</div>
