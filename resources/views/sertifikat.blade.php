@@ -143,7 +143,7 @@
 			</div>
 		</div>
 		
-		<div style="margin-top : 75px">
+		<div id="materiData" style="margin-top : 75px">
 			<div class="container">
 				<div class="row justify-content-md-center align-items-center">
 					<div class="col-md-10">
@@ -231,16 +231,20 @@
 		        $('#ttd_tanggal').html(tanggal2(`${y}-${m}-${d}`))
 
 				var no = 1
-				$('#topic2').html('"' + value.training.topic + '"')
-				$.each(value.training.theory, function(index, value) {
-					appendMateri = `
-						<tr>
-							<td>`+ no++ +`</td>
-							<td class="text-left">`+ value.theory +`</td>
-						</tr>
-					`
-					$('#materi').append(appendMateri)
-				})
+				if(Array.isArray(value.training.theory) && !value.training.theory.length) {
+					$('#materiData').addClass('d-none')
+				} else {
+					$('#topic2').html('"' + value.training.topic + '"')
+					$.each(value.training.theory, function(index, value) {
+						appendMateri = `
+							<tr>
+								<td>`+ no++ +`</td>
+								<td class="text-left">`+ value.theory +`</td>
+							</tr>
+						`
+						$('#materi').append(appendMateri)
+					})
+				}
 		        // new QRCode(document.getElementById('qrcode'), {
 			    //     text: `${root}/detail/${value.qrcode}`,
 			    //     width: 70,
