@@ -88,7 +88,9 @@ $('form').submit(function(e) {
     fd.append('date', $('#date').val())
     fd.append('time', $('#time').val() + ':00')
     fd.append('finish_date_option', $('#finish_date_option').val())
-    fd.append('finish_date', $('#finish_date').val())
+    if($('#finish_date_option').val() == 1) {
+        fd.append('finish_date', $('#finish_date').val())
+    }
     fd.append('description', description.getData())
     fd.append('ttd_id', $('#ttd_id').val())
     fd.append('status', $('#status').val())
@@ -107,7 +109,7 @@ $('form').submit(function(e) {
         error: function(xhr) {
 		    $('#submit').attr('disabled', false)
         	let err = xhr.responseJSON.errors
-            // console.log(err)
+            console.log(err)
             if (err.poster) {
                 $('#poster').addClass('is-invalid')
                 $('#poster').siblings('.invalid-feedback').html('Masukkan poster')
