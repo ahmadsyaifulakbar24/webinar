@@ -106,7 +106,7 @@
 		<div class="isi-content">
 			<!-- <img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -190px; margin-left: -50px;"> -->
 			<img id="photo_url" style="width: 80px; margin-top: 100px;" class="text-center">
-			<div class="text-center col-lg-9 d-block mx-auto" style="margin-top:10px;">
+			<div class="text-center col-9 d-block mx-auto" style="margin-top:10px;">
 				<div class="tahoma">Diberikan Kepada :</div> 
 				<div class="vivaldi" id="name" style="margin-top:-7px;"></div>
 				<div class="tahoma">Sebagai <u id="role"></u></div> 
