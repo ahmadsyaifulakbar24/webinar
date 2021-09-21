@@ -207,11 +207,11 @@
 		        
 		        $('#role').html(value.role.param)
 		        
-		        let unit = value.training.ttd.unit
-		        let firstWord = unit.split(' ')[0]
-		        firstWord == 'Biro' ? $('#unit').html(`Kepala ${unit}`) : $('#unit').html(unit)
+		        let ttd = value.training.ttd.unit
+		        let firstWord = ttd.split(' ')[0]
+		        firstWord == 'Biro' ? $('#ttd_unit').html(`Kepala ${ttd}`) : $('#ttd_unit').html(ttd)
+		        $('#unit').html(value.training.ttd.unit)
 		        $('#ttd_name').html(value.training.ttd.name)
-		        $('#ttd_unit').html(value.training.ttd.unit)
 		        $('#ttd_path').attr('src', `${root}/${value.training.ttd.ttd_path}`)
 
 		        if (value.training.harkopnas == 0) {
