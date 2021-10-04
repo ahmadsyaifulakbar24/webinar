@@ -102,7 +102,8 @@
 		<i class="mdi mdi-48px mdi-check" id="check" style="display: none"></i>
 	</div>
 	<div class="d-none" id="pdf">
-		<img class="img-background" src="{{ asset('assets/images/back_sertifikat.png') }}" style="width:97%">
+		<!-- <img class="img-background" src="{{ asset('assets/images/back_sertifikat.png') }}" style="width:97%"> -->
+		<img class="img-background" src="{{ asset('assets/images/new_sertifikat.png') }}" style="width:97%">
 		<div class="isi-content">
 			<!-- <img id="photo_url" style="width: 100px; position: absolute;top: 50%; left: 50%; margin-top: -190px; margin-left: -50px;"> -->
 			<img id="photo_url" style="width: 80px; margin-top: 100px;" class="text-center">
