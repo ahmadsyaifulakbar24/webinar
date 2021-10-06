@@ -1,11 +1,14 @@
 $.ajax({
     url: `${api_url}/training/fetch`,
     type: 'GET',
+    data: {
+    	limit: 60
+    },
     beforeSend: function(xhr) {
         xhr.setRequestHeader("Authorization", "Bearer " + token)
     },
     success: function(result) {
-    	// console.log(result)
+    	console.log(result)
         $.each(result.data, function(index, value) {
             append = `<div class="col-xl-3 col-md-4 col-sm-6 mb-4">
 				<div class="card pb-5" style="height:100%">
