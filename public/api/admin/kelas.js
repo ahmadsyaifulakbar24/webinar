@@ -17,7 +17,7 @@ function get_data(page = 1) {
         type: 'GET',
         data: {
             page: page,
-            limit: 15
+            limit: page == 1 ? 15 : 16
         },
         beforeSend: function(xhr) {
             xhr.setRequestHeader("Authorization", "Bearer " + token)
