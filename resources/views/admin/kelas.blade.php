@@ -22,7 +22,7 @@
         <div class="container">
             <h5 class="font-weight-bold text-left">Daftar Kelas Online / Webinar</h5>
             <div class="row my-4" id="data"></div>
-			<div id="loading" class="none">
+			<div id="loading">
 				<div class="state d-flex flex-column justify-content-center align-items-center py-5">
 					<div class="loader">
 						<svg class="circular" viewBox="25 25 50 50">
