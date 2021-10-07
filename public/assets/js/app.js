@@ -111,14 +111,16 @@ function pagination(links, meta, path) {
     } else {
         $('#last').addClass('disabled')
     }
-
-    $('#pagination').removeClass('hide')
+    $('#loading').hide()
+    $('#pagination').removeClass('none')
     $('#pagination-label').html(`Showing ${meta.from} to ${meta.to} of ${meta.total} entries`)
 }
 
 $('.page').click(function() {
     if (!$(this).is('.active, .disabled')) {
         let page = $(this).data('id')
+		$('#data').empty()
+		$('#loading').show()
         $('#pagination').addClass('none')
         $('#loading_table').removeClass('none')
         get_data(page)
