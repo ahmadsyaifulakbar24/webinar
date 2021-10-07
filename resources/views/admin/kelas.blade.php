@@ -20,7 +20,10 @@
 @section('content')
     <section class="text-left">
         <div class="container">
-            <h5 class="font-weight-bold text-left">Daftar Kelas Online / Webinar</h5>
+        	<div class="d-flex justify-content-between align-items-center">
+	            <h5 class="font-weight-bold mb-0">Daftar Kelas Online / Webinar</h5>
+	            <a href="{{url('admin/tambah/kelas')}}" class="btn btn-active">Tambah Kelas Online / Webinar</a>
+	        </div>
             <div class="row my-4" id="data"></div>
 			<div id="loading">
 				<div class="state d-flex flex-column justify-content-center align-items-center py-5">
