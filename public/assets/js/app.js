@@ -112,7 +112,7 @@ function pagination(links, meta, path) {
         $('#last').addClass('disabled')
     }
     $('#loading').hide()
-    $('#pagination').removeClass('none')
+    $('#pagination').show()
     $('#pagination-label').html(`Showing ${meta.from} to ${meta.to} of ${meta.total} entries`)
 }
 
@@ -121,7 +121,7 @@ $('.page').click(function() {
         let page = $(this).data('id')
 		$('#data').empty()
 		$('#loading').show()
-        $('#pagination').addClass('none')
+        $('#pagination').hide()
         $('#loading_table').removeClass('none')
         get_data(page)
     }

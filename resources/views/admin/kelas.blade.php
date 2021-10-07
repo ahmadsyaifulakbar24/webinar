@@ -31,7 +31,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="mb-5 hide" id="pagination">
+			<div class="mb-5 none" id="pagination">
 				<div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
 					<small class="text-secondary pb-3 pb-md-0" id="pagination-label"></small>
 					<nav>
