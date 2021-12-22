@@ -130,14 +130,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="float-right ttd-margin" style="margin-right: 170px;margin-top: 20px;">
+			<div class="float-right ttd-margin" style="margin-right: 200px;margin-top: 20px;">
 				<div class="col-lg-12 text-center ttd">
 					<div class="tahoma">Jakarta, <span id="ttd_tanggal"></span></div>
 					<div class="tahoma" id="ttd_unit"></div>
 					<div class="tahoma harkopnas">Selaku Ketua Panitia Peringatan Hari Koperasi ke 74</div>
 					<img class="img-fluid harkopnas" src="{{ asset('assets/images/harkop.png') }}" width="90" style="position:absolute; right:350px; top:10px;">
-					<img class="img-fluid cap" src="{{ asset('assets/images/cap.png') }}" width="90" style="position:absolute; right:175px; top:30px;z-index: 99;">
-					<img class="img-fluid ttd_path" width="100" style="position:absolute; right:120px; top:30px;" id="ttd_path">
+					<img class="img-fluid cap" src="{{ asset('assets/images/cap.png') }}" width="90" style="position:absolute; right:150px; top:30px;z-index: 99;">
+					<img class="img-fluid ttd_path" width="100" style="position:absolute; right:70px; top:30px;" id="ttd_path">
 					<br><br><br>
 					<div class="tahoma" id="ttd_name"></div>
 				</div>
