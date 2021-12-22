@@ -219,11 +219,12 @@
 		        	$('.harkopnas').hide()
 		        	$('.cap').css('top', '20px')
 		        	$('.ttd_path').css('top', '10px')
-		        	if (value.training.ttd.id != 3) {
-			        	$('.ttd').css('margin-right', '140px')
-		        	} else {
-			        	$('.ttd').css('margin-right', '20px')
-		        	}
+		        	// if (value.training.ttd.id != 3) {
+			        // 	$('.ttd').css('margin-right', '140px')
+		        	// } else {
+			        // 	$('.ttd').css('margin-right', '20px')
+		        	// }
+		        	$('.ttd').css('margin-right', '20px')
 		        }
 
 		        let date = new Date()
