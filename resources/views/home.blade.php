@@ -21,7 +21,7 @@
                 background-position: top !important;
             }
             .card-2023 {
-                background-image: url('{{asset('assets/images/home/2024.png')}}');
+                background-image: url('{{asset('assets/images/home/2023.jpg')}}');
                 background-position: top !important;
             }
             .card-soon {
