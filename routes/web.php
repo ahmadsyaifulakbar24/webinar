@@ -6,8 +6,12 @@ use App\Http\Controllers\SessionController;
 Route::get('session/login', [SessionController::class, 'createSession']);
 Route::get('session/logout', [SessionController::class, 'deleteSession']);
 
+Route::get('/', function () {
+    return view('home');
+});
+
 Route::group(['middleware'=>['afterMiddleware']], function () {
-	Route::get('/', function () {
+	Route::get('login', function () {
 	    return view('login');
 	});
 	Route::get('pengisian-data-profil', function () {
