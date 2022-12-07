@@ -17,11 +17,11 @@
                 text-decoration: none;
             }
             .card-2022 {
-                background-image: url('{{asset('assets/images/home/2022.jpg')}}');
+                background-image: url('{{asset('assets/images/home/2022.png')}}');
                 background-position: top !important;
             }
             .card-2023 {
-                background-image: url('{{asset('assets/images/home/2023.jpg')}}');
+                background-image: url('{{asset('assets/images/home/2023.png')}}');
                 background-position: top !important;
             }
             .card-soon {
@@ -42,14 +42,8 @@
 
             .h1-certificate {
                 position: absolute;
-               margin-left: auto;
-               margin-right: auto;
-               left: 0;
-               right: 0;
-               text-align: center;
-               top: 40%;
-                /* bottom: 10px;
-                padding-left: 20px; */
+                bottom: 10px;
+                padding-left: 20px;
             }
 
             .owl-nav button.owl-next {
