@@ -7,6 +7,9 @@ Route::get('session/login', [SessionController::class, 'createSession']);
 Route::get('session/logout', [SessionController::class, 'deleteSession']);
 
 Route::get('/', function () {
+    return redirect('/login');
+});
+Route::get('/anggaran', function () {
     return view('home');
 });
 

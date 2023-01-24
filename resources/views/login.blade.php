@@ -57,6 +57,11 @@
                         <button class="btn btn-active btn-block" id="submit">Masuk</button>
                     </div>
                     <a href="{{url('pengisian-data-profil')}}" class="btn btn-block btn-outline mb-3">Pengisian Data Profil</a>
+                     <div class="mx-auto text-center mt-3">
+                        <a href="{{url('anggaran')}}" class="text-black-50">
+                           <small>Pilih Tahun Anggaran</small>
+                        </a>
+                     </div>
                 </form>
             </div>
         </div>
