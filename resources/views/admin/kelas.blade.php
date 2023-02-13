@@ -22,7 +22,8 @@
         <div class="container">
         	<div class="d-flex justify-content-between align-items-center">
 	            <h5 class="font-weight-bold mb-0">Daftar Kelas Online / Webinar</h5>
-	            <a href="{{url('admin/tambah/kelas')}}" class="btn btn-active">Tambah Kelas Online / Webinar</a>
+	            <!-- <a href="{{url('admin/tambah/kelas')}}" class="btn btn-active">Tambah Kelas Online / Webinar</a> -->
+	            <button class="btn btn-active" disabled>Tambah Kelas Online / Webinar</button>
 	        </div>
             <div class="row my-4" id="data"></div>
 			<div id="loading">

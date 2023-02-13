@@ -91,7 +91,7 @@
                                 <div class="invalid-feedback"></div>
                             </div>
 	                        <div class="form-group pt-3">
-	                            <button class="btn btn-active btn-block" id="submit">Buat Kelas</button>
+	                            <button class="btn btn-active btn-block" id="submit" disabled>Buat Kelas</button>
 	                        </div>
 	                    </form>
                     </div>
