@@ -17,9 +17,6 @@ Route::group(['middleware'=>['afterMiddleware']], function () {
 	Route::get('login', function () {
 	    return view('login');
 	});
-	Route::get('pengisian-data-profil', function () {
-	    return view('registration');
-	});
 });
 
 Route::group(['middleware'=>['beforeMiddleware']], function () {
